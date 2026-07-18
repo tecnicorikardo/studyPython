@@ -147,7 +147,7 @@ const lessons = [
     exercises: [
       "Leia nome e idade e mostre uma frase completa.",
       "Receba duas notas e calcule a media.",
-      "Peça salario e calcule um reajuste simples.",
+      "Peca salario e calcule um reajuste simples.",
       "Treine f-strings com pelo menos tres mensagens diferentes.",
     ],
     challenge:
@@ -309,7 +309,7 @@ const lessons = [
       "Crie uma funcao que soma dois numeros.",
       "Crie uma funcao que mostra uma saudacao personalizada.",
       "Crie uma funcao com valor padrao.",
-      "Faça uma funcao que devolve o maior numero entre dois valores.",
+      "Faca uma funcao que devolve o maior numero entre dois valores.",
     ],
     challenge:
       "Refatore uma calculadora simples para que cada operacao fique em uma funcao separada.",
@@ -467,7 +467,7 @@ const lessons = [
       "dados = resposta.json()",
     ],
     exercises: [
-      "Faça uma requisicao GET simples.",
+      "Faca uma requisicao GET simples.",
       "Leia e exiba dados retornados em JSON.",
       "Teste uma API publica de previsao, endereco ou cotacao.",
       "Trate erro quando a conexao falhar.",
@@ -554,7 +554,7 @@ const lessons = [
         ordered: true,
         items: [
           "Use git status antes de qualquer alteracao.",
-          "Faça um commit pequeno ao terminar uma aula.",
+          "Faca um commit pequeno ao terminar uma aula.",
           "Envie o commit ao GitHub com git push.",
           "Repita esse fluxo ate ele ficar automatico.",
         ],
