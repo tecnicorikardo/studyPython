@@ -3,32 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Site de estudos progressivo de Python com cronograma semanal, exercicios, quiz interativo e sistema de progresso." />
-    <meta name="keywords" content="python, programacao, estudos, tutorial, exercicios, quiz, aprender python" />
+    <meta
+      name="description"
+      content="Site de estudos progressivo de Python com cronograma semanal, exercicios, quiz interativo e sistema de progresso."
+    />
+    <meta
+      name="keywords"
+      content="python, programacao, estudos, tutorial, exercicios, quiz, aprender python"
+    />
     <meta name="author" content="Seu Nome" />
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Plano de Exercicios Python - Estudo Progressivo" />
-    <meta property="og:description" content="Aprenda Python com cronograma semanal estruturado, exercicios praticos e quiz interativo." />
-    
-    <!-- Twitter -->
+    <meta
+      property="og:description"
+      content="Aprenda Python com cronograma semanal estruturado, exercicios praticos e quiz interativo."
+    />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Plano de Exercicios Python" />
-    <meta property="twitter:description" content="Aprenda Python com cronograma semanal estruturado." />
-    
+    <meta
+      property="twitter:description"
+      content="Aprenda Python com cronograma semanal estruturado."
+    />
     <title>Plano de Exercicios Python</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body role="document">
+    <a class="skip-link" href="#lesson-content">Pular para o conteudo principal</a>
     <div class="page-shell">
-      <aside class="sidebar" role="complementary" aria-label="Navegação do curso">
+      <aside class="sidebar" role="complementary" aria-label="Navegacao do curso">
         <div class="brand">
           <p id="brand-eyebrow" class="eyebrow">Treino focado</p>
           <h1 id="brand-title">Variaveis e operadores</h1>
@@ -37,7 +49,12 @@
           </p>
         </div>
 
-        <div id="progress-summary" class="progress-summary"></div>
+        <div
+          id="progress-summary"
+          class="progress-summary"
+          role="status"
+          aria-live="polite"
+        ></div>
 
         <div id="track-tabs" class="track-tabs" role="tablist" aria-label="Semanas do curso"></div>
 
@@ -57,12 +74,16 @@
           </p>
         </section>
 
+        <section id="support-panels" class="support-grid" aria-label="Recursos de apoio"></section>
         <section id="lesson-content" class="lesson-content" aria-live="polite" aria-atomic="true"></section>
       </main>
     </div>
 
     <script src="./progress.js"></script>
     <script src="./lessons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
