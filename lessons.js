@@ -1,5 +1,366 @@
 const lessons = [
   {
+    id: "semana-1-visao-geral",
+    weekDay: "Semana 1",
+    title: "Variaveis e operadores",
+    goal: "Estudar durante 7 dias apenas variaveis, tipos de dados e operadores basicos.",
+    focus: ["variaveis", "strings", "int", "float", "operadores", "comparacao"],
+    blocks: [
+      {
+        type: "text",
+        title: "Explicacao da semana",
+        content:
+          "Nesta primeira semana o foco e aprender como guardar valores em variaveis, entender tipos de dados e usar operadores matematicos e de comparacao. A ideia e repetir bastante os mesmos conceitos ate eles ficarem naturais.",
+      },
+      {
+        type: "list",
+        title: "O que voce vai ver nesta semana",
+        ordered: true,
+        items: [
+          "Criacao de variaveis e regras de nomes.",
+          "Textos com strings.",
+          "Numeros inteiros e decimais.",
+          "Uso de type() e conversao de tipos.",
+          "Operadores de soma, subtracao, multiplicacao e divisao.",
+          "Operadores como %, // e **.",
+          "Comparacoes como ==, >, <, >= e <=.",
+        ],
+      },
+      {
+        type: "qa",
+        title: "Perguntas e respostas rapidas",
+        items: [
+          {
+            question: "O que e uma variavel?",
+            answer: "E um nome usado para guardar um valor dentro do programa.",
+          },
+          {
+            question: "Para que serve o type()?",
+            answer: "Para descobrir o tipo de dado armazenado em uma variavel.",
+          },
+        ],
+      },
+      {
+        type: "input",
+        title: "Meta da semana",
+        fields: [
+          {
+            label: "Escreva o que voce quer memorizar ate o fim desta semana",
+            inputType: "textarea",
+            placeholder: "Ex.: criar variaveis sem travar e resolver contas simples com operadores",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "dia-1",
+    weekDay: "Dia 1",
+    title: "Variaveis e nomes",
+    goal: "Aprender a criar variaveis e dar nomes claros para cada valor.",
+    focus: ["variaveis", "nomes", "atribuicao"],
+    blocks: [
+      {
+        type: "text",
+        title: "Explicacao",
+        content:
+          "Variavel e um espaco com nome para guardar um valor. Em Python, voce cria uma variavel usando o sinal de igual. Bons nomes ajudam a entender o codigo sem precisar de explicacao extra.",
+      },
+      {
+        type: "list",
+        title: "Exemplos",
+        ordered: false,
+        items: [
+          "nome = 'Ricardo'",
+          "idade = 30",
+          "cidade = 'Sao Paulo'",
+          "salario = 2500.50",
+        ],
+      },
+      {
+        type: "list",
+        title: "Exercicios",
+        ordered: true,
+        items: [
+          "Crie variaveis para nome, idade e profissao.",
+          "Crie uma variavel para guardar o valor de um produto.",
+          "Crie duas variaveis com nomes ruins e depois reescreva com nomes melhores.",
+        ],
+      },
+      {
+        type: "text",
+        title: "Desafio do dia",
+        content:
+          "Monte um pequeno cadastro com cinco variaveis diferentes e depois mostre no terminal o que cada uma representa.",
+      },
+    ],
+  },
+  {
+    id: "dia-2",
+    weekDay: "Dia 2",
+    title: "Tipos de dados",
+    goal: "Entender strings, inteiros, floats e booleanos.",
+    focus: ["string", "int", "float", "bool", "type"],
+    blocks: [
+      {
+        type: "text",
+        title: "Explicacao",
+        content:
+          "Cada valor tem um tipo. Strings guardam texto, int guarda numero inteiro, float guarda numero com casas decimais e bool representa verdadeiro ou falso.",
+      },
+      {
+        type: "list",
+        title: "Exemplos",
+        ordered: false,
+        items: [
+          "nome = 'Ana' -> string",
+          "idade = 20 -> int",
+          "altura = 1.75 -> float",
+          "ativo = True -> bool",
+        ],
+      },
+      {
+        type: "list",
+        title: "Exercicios",
+        ordered: true,
+        items: [
+          "Crie uma variavel de cada tipo e use type() para conferir.",
+          "Escreva tres exemplos de string, tres de int e tres de float.",
+          "Crie dois exemplos com True e False.",
+        ],
+      },
+      {
+        type: "text",
+        title: "Desafio do dia",
+        content:
+          "Crie um bloco de variaveis para representar uma pessoa e identifique o tipo de cada dado usado.",
+      },
+    ],
+  },
+  {
+    id: "dia-3",
+    weekDay: "Dia 3",
+    title: "Conversao de tipos",
+    goal: "Aprender a converter valores com int(), float() e str().",
+    focus: ["conversao", "int()", "float()", "str()"],
+    blocks: [
+      {
+        type: "text",
+        title: "Explicacao",
+        content:
+          "Nem sempre o valor ja vem no tipo que voce precisa. A conversao ajuda a transformar texto em numero, numero em texto e ajustar os dados para a conta ou exibicao.",
+      },
+      {
+        type: "list",
+        title: "Exemplos",
+        ordered: false,
+        items: [
+          "idade = int('25')",
+          "preco = float('19.90')",
+          "mensagem = str(2026)",
+        ],
+      },
+      {
+        type: "list",
+        title: "Exercicios",
+        ordered: true,
+        items: [
+          "Converta o texto '100' para inteiro.",
+          "Converta o texto '45.8' para float.",
+          "Converta o numero 500 para string e junte com uma frase.",
+        ],
+      },
+      {
+        type: "text",
+        title: "Desafio do dia",
+        content:
+          "Simule a leitura de dois numeros em texto e converta os dois antes de somar.",
+      },
+    ],
+  },
+  {
+    id: "dia-4",
+    weekDay: "Dia 4",
+    title: "Operadores matematicos",
+    goal: "Treinar soma, subtracao, multiplicacao e divisao.",
+    focus: ["+", "-", "*", "/"],
+    blocks: [
+      {
+        type: "text",
+        title: "Explicacao",
+        content:
+          "Os operadores matematicos fazem contas entre valores. Eles sao a base para calcular media, total, desconto, salario, idade e muitos outros problemas simples.",
+      },
+      {
+        type: "list",
+        title: "Exemplos",
+        ordered: false,
+        items: [
+          "10 + 5 = 15",
+          "10 - 5 = 5",
+          "10 * 5 = 50",
+          "10 / 5 = 2.0",
+        ],
+      },
+      {
+        type: "list",
+        title: "Exercicios",
+        ordered: true,
+        items: [
+          "Crie duas variaveis numericas e mostre a soma delas.",
+          "Crie um programa que calcule o dobro e a metade de um numero.",
+          "Calcule a media de tres notas.",
+        ],
+      },
+      {
+        type: "text",
+        title: "Desafio do dia",
+        content:
+          "Monte uma conta com varias operacoes juntas e confira se o resultado ficou como voce esperava.",
+      },
+    ],
+  },
+  {
+    id: "dia-5",
+    weekDay: "Dia 5",
+    title: "Operadores avancados",
+    goal: "Entender resto, divisao inteira e potenciacao.",
+    focus: ["%", "//", "**"],
+    blocks: [
+      {
+        type: "text",
+        title: "Explicacao",
+        content:
+          "Alguns operadores aparecem muito em exercicios: % mostra o resto da divisao, // devolve a divisao inteira e ** faz potenciacao.",
+      },
+      {
+        type: "list",
+        title: "Exemplos",
+        ordered: false,
+        items: [
+          "10 % 3 = 1",
+          "10 // 3 = 3",
+          "2 ** 3 = 8",
+        ],
+      },
+      {
+        type: "list",
+        title: "Exercicios",
+        ordered: true,
+        items: [
+          "Descubra se um numero e par usando %.",
+          "Mostre quantos grupos completos de 4 pessoas cabem em 19 pessoas usando //.",
+          "Calcule o quadrado e o cubo de um numero com **.",
+        ],
+      },
+      {
+        type: "text",
+        title: "Desafio do dia",
+        content:
+          "Crie um exercicio que misture %, // e ** no mesmo problema, como vagas, grupos ou pontos de jogo.",
+      },
+    ],
+  },
+  {
+    id: "dia-6",
+    weekDay: "Dia 6",
+    title: "Operadores de comparacao",
+    goal: "Aprender a comparar valores e entender resultados True e False.",
+    focus: ["==", "!=", ">", "<", ">=", "<="],
+    blocks: [
+      {
+        type: "text",
+        title: "Explicacao",
+        content:
+          "Comparacoes servem para verificar se um valor e maior, menor, igual ou diferente de outro. O resultado sempre sera verdadeiro ou falso.",
+      },
+      {
+        type: "list",
+        title: "Exemplos",
+        ordered: false,
+        items: [
+          "10 > 5 -> True",
+          "7 == 8 -> False",
+          "9 != 4 -> True",
+          "6 <= 6 -> True",
+        ],
+      },
+      {
+        type: "list",
+        title: "Exercicios",
+        ordered: true,
+        items: [
+          "Compare duas idades e diga qual e maior.",
+          "Verifique se um numero e igual a 100.",
+          "Mostre se um salario e maior ou menor que 3000.",
+        ],
+      },
+      {
+        type: "text",
+        title: "Desafio do dia",
+        content:
+          "Crie cinco comparacoes diferentes e tente prever o resultado antes de rodar.",
+      },
+    ],
+  },
+  {
+    id: "dia-7",
+    weekDay: "Dia 7",
+    title: "Projeto semanal",
+    goal: "Fechar a semana com um mini projeto usando variaveis e operadores.",
+    focus: ["projeto", "cadastro", "calculos", "comparacoes"],
+    blocks: [
+      {
+        type: "text",
+        title: "Explicacao",
+        content:
+          "Hoje o foco e juntar tudo o que voce treinou na semana. O projeto nao precisa ser grande; ele precisa apenas usar bem os fundamentos.",
+      },
+      {
+        type: "list",
+        title: "Exemplos de projeto",
+        ordered: false,
+        items: [
+          "Cadastro simples com nome, idade e profissao.",
+          "Calculadora basica com duas entradas numericas.",
+          "Ficha de produto com nome, preco, desconto e preco final.",
+        ],
+      },
+      {
+        type: "list",
+        title: "Exercicios finais",
+        ordered: true,
+        items: [
+          "Escolha um dos projetos e escreva as variaveis que vai usar.",
+          "Adicione pelo menos quatro operacoes matematicas ou comparacoes.",
+          "Mostre tudo com frases claras no terminal.",
+        ],
+      },
+      {
+        type: "text",
+        title: "Desafio final",
+        content:
+          "Crie um sistema de cadastro simples com nome, idade, profissao, salario, bonus e salario final. Depois compare se o salario final ficou acima de um valor definido por voce.",
+      },
+      {
+        type: "input",
+        title: "Projeto semanal",
+        fields: [
+          {
+            label: "Qual projeto voce vai fazer nesta semana?",
+            inputType: "text",
+            placeholder: "Ex.: cadastro simples com calculo de bonus",
+          },
+          {
+            label: "Escreva a mensagem de commit para quando terminar essa semana",
+            inputType: "text",
+            placeholder: "Ex.: finaliza semana 1 de variaveis e operadores",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "github-basico",
     weekDay: "Trilha extra",
     title: "GitHub basico para memorizar",
@@ -26,354 +387,26 @@ const lessons = [
         ],
       },
       {
-        type: "qa",
-        title: "Perguntas e respostas rapidas",
-        items: [
-          {
-            question: "Preciso dar commit no comeco da aula?",
-            answer: "Normalmente voce faz commit quando conclui uma mudanca com sentido. No comeco da aula, o mais importante e fazer pull e checar status.",
-          },
-          {
-            question: "Quando usar push?",
-            answer: "Depois de fazer um ou mais commits e querer enviar essas alteracoes para o GitHub.",
-          },
-          {
-            question: "Quando usar pull?",
-            answer: "Antes de continuar trabalhando, para garantir que voce esta com a versao mais atual do repositorio.",
-          },
-        ],
-      },
-      {
         type: "quiz",
         title: "Quiz de multipla escolha",
         questions: [
           {
             prompt: "Qual comando mostra quais arquivos foram alterados no projeto?",
-            options: [
-              { label: "git status" },
-              { label: "git push" },
-              { label: "git clone" },
-            ],
+            options: [{ label: "git status" }, { label: "git push" }, { label: "git clone" }],
             answerIndex: 0,
             explanation: "Use git status para entender o estado atual do repositorio antes de tomar qualquer acao.",
           },
           {
             prompt: "Qual comando baixa atualizacoes do repositorio remoto e integra no seu projeto local?",
-            options: [
-              { label: "git add ." },
-              { label: "git pull" },
-              { label: "git commit -m \"inicio\"" },
-            ],
+            options: [{ label: "git add ." }, { label: "git pull" }, { label: "git commit -m \"inicio\"" }],
             answerIndex: 1,
             explanation: "git pull traz mudancas do remoto. E um bom habito antes de retomar o estudo ou comecar uma tarefa.",
           },
           {
-            prompt: "Depois de alterar arquivos e preparar tudo com git add, qual e o proximo passo natural?",
-            options: [
-              { label: "git commit -m \"mensagem clara\"" },
-              { label: "git branch" },
-              { label: "git clone" },
-            ],
-            answerIndex: 0,
-            explanation: "O commit registra um ponto da sua evolucao com uma mensagem que explica a mudanca.",
-          },
-          {
             prompt: "Qual comando envia seus commits locais para o GitHub?",
-            options: [
-              { label: "git push" },
-              { label: "git status" },
-              { label: "git checkout" },
-            ],
+            options: [{ label: "git push" }, { label: "git status" }, { label: "git checkout" }],
             answerIndex: 0,
             explanation: "git push sincroniza seus commits locais com o repositorio remoto.",
-          },
-          {
-            prompt: "Se voce quer criar uma copia local de um repositorio que ainda nao esta no seu computador, qual comando usa?",
-            options: [
-              { label: "git clone" },
-              { label: "git merge" },
-              { label: "git pull" },
-            ],
-            answerIndex: 0,
-            explanation: "git clone baixa o repositorio inteiro pela primeira vez.",
-          },
-          {
-            prompt: "Qual destes itens tambem e importante memorizar no GitHub alem de commit, push e pull?",
-            options: [
-              { label: "Branch e pull request" },
-              { label: "Apenas mudar o nome dos arquivos" },
-              { label: "Somente abrir o site do GitHub" },
-            ],
-            answerIndex: 0,
-            explanation: "Branch e pull request fazem parte do fluxo normal de colaboracao e organizacao de trabalho.",
-          },
-        ],
-      },
-      {
-        type: "list",
-        title: "Fluxo simples para decorar",
-        ordered: true,
-        items: [
-          "git pull",
-          "git status",
-          "fazer a aula ou exercicio",
-          "git add .",
-          "git commit -m \"descreve o que mudou\"",
-          "git push",
-        ],
-      },
-      {
-        type: "input",
-        title: "Memorizacao",
-        fields: [
-          {
-            label: "Escreva com suas palavras quando usar pull, commit e push",
-            inputType: "textarea",
-            placeholder: "Ex.: pull antes de comecar, commit ao fechar uma etapa, push para enviar...",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "dia-1",
-    weekDay: "Dia 1",
-    title: "Fundamentos e primeiros passos",
-    goal: "Revisar variaveis, tipos, entrada e saida de dados.",
-    focus: ["variaveis", "strings", "input", "print"],
-    blocks: [
-      {
-        type: "text",
-        title: "Objetivo da aula",
-        content:
-          "Comece reforcando a base. A ideia aqui e se acostumar com a leitura do problema, entrada de dados e exibicao de resultados.",
-      },
-      {
-        type: "list",
-        title: "Exercicios sugeridos",
-        ordered: true,
-        items: [
-          "Crie um programa que peca nome, idade e cidade e mostre uma frase completa.",
-          "Receba duas notas e calcule a media.",
-          "Leia uma string e mostre ela em maiusculas, minusculas e com o total de caracteres.",
-        ],
-      },
-      {
-        type: "qa",
-        title: "Perguntas e respostas rapidas",
-        items: [
-          {
-            question: "Quando usar input()?",
-            answer: "Quando o programa precisa receber um valor digitado pelo usuario.",
-          },
-          {
-            question: "O que e uma string?",
-            answer: "Um tipo de dado usado para armazenar texto.",
-          },
-        ],
-      },
-      {
-        type: "input",
-        title: "Campo de treino",
-        fields: [
-          {
-            label: "Escreva com suas palavras o que voce aprendeu hoje",
-            inputType: "textarea",
-            placeholder: "Resumo do dia...",
-          },
-          {
-            label: "Qual exercicio voce quer revisar depois?",
-            inputType: "text",
-            placeholder: "Ex.: media de notas",
-          },
-          {
-            label: "Mensagem de commit para fechar essa aula",
-            inputType: "text",
-            placeholder: "Ex.: conclui exercicios de variaveis e strings",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "dia-2",
-    weekDay: "Dia 2",
-    title: "Condicionais e decisoes",
-    goal: "Treinar if, elif e else com problemas pequenos.",
-    focus: ["if", "comparacoes", "logica"],
-    blocks: [
-      {
-        type: "text",
-        title: "Leitura do problema",
-        content:
-          "Antes de codar, tente responder: quais condicoes existem, quais caminhos o programa pode seguir e qual resultado deve aparecer em cada caso?",
-      },
-      {
-        type: "list",
-        title: "Desafios",
-        ordered: true,
-        items: [
-          "Verifique se um numero e positivo, negativo ou zero.",
-          "Leia a idade e informe se a pessoa e menor de idade, adulta ou idosa.",
-          "Crie um mini sistema de login que compara usuario e senha.",
-        ],
-      },
-      {
-        type: "qa",
-        title: "Perguntas comuns",
-        items: [
-          {
-            question: "Quando usar elif?",
-            answer: "Quando ha mais de uma condicao intermediaria alem do if principal e do else final.",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "dia-3",
-    weekDay: "Dia 3",
-    title: "Repeticao com for e while",
-    goal: "Praticar lacos e repeticoes controladas.",
-    focus: ["for", "while", "range"],
-    blocks: [
-      {
-        type: "list",
-        title: "Sequencia de pratica",
-        ordered: true,
-        items: [
-          "Conte de 1 ate 10 com for.",
-          "Mostre apenas os numeros pares de 0 a 20.",
-          "Use while para repetir ate o usuario digitar 'sair'.",
-        ],
-      },
-      {
-        type: "input",
-        title: "Checklist pessoal",
-        fields: [
-          {
-            label: "Qual laco ainda te confunde mais?",
-            inputType: "select",
-            options: ["for", "while", "ambos"],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "dia-4",
-    weekDay: "Dia 4",
-    title: "Listas e colecoes",
-    goal: "Manipular listas, adicionar, remover e percorrer itens.",
-    focus: ["listas", "append", "for"],
-    blocks: [
-      {
-        type: "text",
-        title: "Aplicacao pratica",
-        content:
-          "Esse e um bom ponto para criar exercicios parecidos com cadastro simples, carrinho de compras ou lista de tarefas.",
-      },
-      {
-        type: "list",
-        title: "Ideias de exercicios",
-        ordered: false,
-        items: [
-          "Adicionar nomes em uma lista e mostrar todos no final.",
-          "Somar todos os numeros de uma lista.",
-          "Descobrir o maior e o menor valor armazenado.",
-        ],
-      },
-    ],
-  },
-  {
-    id: "dia-5",
-    weekDay: "Dia 5",
-    title: "Funcoes e reutilizacao",
-    goal: "Separar responsabilidades e evitar repeticao.",
-    focus: ["def", "parametros", "retorno"],
-    blocks: [
-      {
-        type: "qa",
-        title: "Perguntas de revisao",
-        items: [
-          {
-            question: "Por que criar funcoes?",
-            answer: "Para dividir o codigo em partes reutilizaveis, mais legiveis e mais faceis de testar.",
-          },
-          {
-            question: "O que e retorno?",
-            answer: "E o valor que a funcao devolve para quem a chamou.",
-          },
-        ],
-      },
-      {
-        type: "list",
-        title: "Exercicios",
-        ordered: true,
-        items: [
-          "Crie uma funcao que soma dois numeros.",
-          "Crie uma funcao que valida se uma senha tem tamanho minimo.",
-          "Crie uma funcao que recebe uma lista e devolve o maior valor.",
-        ],
-      },
-    ],
-  },
-  {
-    id: "dia-6",
-    weekDay: "Dia 6",
-    title: "Mini projeto guiado",
-    goal: "Juntar varios conceitos em algo mais real.",
-    focus: ["menus", "listas", "funcoes", "condicoes"],
-    blocks: [
-      {
-        type: "text",
-        title: "Projeto da semana",
-        content:
-          "Monte uma lista de tarefas em terminal: adicionar tarefa, listar, concluir e remover. Isso conecta variaveis, listas, funcoes e repeticao.",
-      },
-      {
-        type: "input",
-        title: "Planejamento",
-        fields: [
-          {
-            label: "Quais funcionalidades voce quer no mini projeto?",
-            inputType: "textarea",
-            placeholder: "Ex.: cadastrar, listar, marcar como concluida...",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "dia-7",
-    weekDay: "Dia 7",
-    title: "Revisao, correcao e proximos passos",
-    goal: "Consolidar o aprendizado e planejar novas aulas.",
-    focus: ["revisao", "erros", "novas metas"],
-    blocks: [
-      {
-        type: "list",
-        title: "Fechamento da semana",
-        ordered: true,
-        items: [
-          "Refaca um exercicio de cada dia sem olhar a resposta.",
-          "Anote os erros que mais se repetiram.",
-          "Escolha o proximo tema: arquivos, dicionarios, orientacao a objetos ou APIs.",
-        ],
-      },
-      {
-        type: "input",
-        title: "Proxima aula",
-        fields: [
-          {
-            label: "Tema da nova aula",
-            inputType: "text",
-            placeholder: "Ex.: dicionarios em Python",
-          },
-          {
-            label: "Descricao curta",
-            inputType: "textarea",
-            placeholder: "O que essa nova aula deve cobrir?",
           },
         ],
       },

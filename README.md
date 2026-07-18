@@ -1,6 +1,9 @@
 # Site de estudos
 
-Esse projeto e um site estatico simples para organizar uma semana de exercicios e revisoes de Python, com uma trilha extra de GitHub basico.
+Esse projeto e um site estatico simples para organizar o estudo por semanas.
+
+No momento, o conteudo principal esta focado apenas na Semana 1: variaveis e operadores.
+Tambem existe uma trilha extra de GitHub basico.
 
 ## Como abrir
 
@@ -13,18 +16,18 @@ python -m http.server 8000
 
 Depois acesse `http://localhost:8000`.
 
-## Como adicionar novas aulas
+## Como adicionar novas semanas ou aulas
 
-As aulas ficam em `lessons.js`, dentro do array `lessons`.
+As semanas e aulas ficam em `lessons.js`, dentro do array `lessons`.
 
-Cada aula aceita esta estrutura:
+Cada item aceita esta estrutura:
 
 ```js
 {
   id: "dia-8",
-  weekDay: "Dia 8",
-  title: "Novo tema",
-  goal: "Descricao curta da aula.",
+  weekDay: "Dia 1",
+  title: "Tema da aula",
+  goal: "Descricao curta da aula ou semana.",
   focus: ["tema-1", "tema-2"],
   blocks: [
     {
@@ -93,5 +96,5 @@ Cada aula aceita esta estrutura:
 
 - `index.html`: layout principal
 - `styles.css`: visual do site
-- `lessons.js`: conteudo das aulas
+- `lessons.js`: conteudo das semanas e aulas
 - `app.js`: renderizacao dinamica
