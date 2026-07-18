@@ -26,7 +26,13 @@ const studyTracks = [
             type: "list",
             title: "Exemplos",
             ordered: false,
-            items: ["nome = 'Ricardo'", "idade = 30", "cidade = 'Sao Paulo'", "saldo = 150.75"],
+            items: [
+              "nome = 'Ricardo'",
+              "idade = 30",
+              "cidade = 'Sao Paulo'",
+              "saldo = 150.75",
+              "preco = 50\nquantidade = 2\ntotal = preco * quantidade\nprint(total)",
+            ],
           },
           {
             type: "list",
@@ -341,6 +347,9 @@ const studyTracks = [
               "Converta textos numericos em numeros e refaca as contas.",
               "Crie uma ficha de produto com nome, preco, desconto e preco final.",
               "Refaca dois exercicios antigos sem olhar a resposta.",
+              "Calcule media, dobro e resto da divisao do mesmo conjunto de numeros.",
+              "Compare dois salarios e mostre qual ficou maior.",
+              "Monte um mini-projeto final: cadastro de funcionario com salario, bonus, desconto e verificacao de meta.",
             ],
           },
           {
@@ -372,6 +381,22 @@ const studyTracks = [
                 ],
                 answerIndex: 0,
                 explanation: "O ultimo dia serve para fixacao e memoria, nao para abrir outro assunto.",
+              },
+              {
+                prompt: "Se preco = 80 e desconto = 10, qual conta mostra o preco final?",
+                options: [
+                  { label: "preco - desconto" },
+                  { label: "preco + desconto" },
+                  { label: "preco * desconto" },
+                ],
+                answerIndex: 0,
+                explanation: "Para achar o valor final com desconto, voce subtrai o desconto do preco.",
+              },
+              {
+                prompt: "Qual expressao verifica se uma nota atingiu a meta 7?",
+                options: [{ label: "nota >= 7" }, { label: "nota = 7" }, { label: "nota + 7" }],
+                answerIndex: 0,
+                explanation: "A comparacao >= verifica se a nota ficou igual ou acima da meta.",
               },
             ],
           },
@@ -751,6 +776,10 @@ const studyTracks = [
               "Leia largura e altura e exiba a area.",
               "Valide se idade e positiva antes de exibir.",
               "Refaca dois exercicios da semana sem olhar a resposta.",
+              "Leia nome, idade e cidade e monte um resumo final em tres linhas.",
+              "Leia dois precos e mostre subtotal, desconto e total final.",
+              "Leia peso e altura e exiba um calculo simples com mensagem formatada.",
+              "Monte um mini-projeto final: formulario de aluno com notas, media e status exibido com f-string.",
             ],
           },
           {
@@ -776,6 +805,28 @@ const studyTracks = [
                 ],
                 answerIndex: 0,
                 explanation: "O dia final serve para consolidacao e memoria.",
+              },
+              {
+                prompt: "Qual funcao normalmente aparece antes de somar entradas numericas?",
+                options: [{ label: "int() ou float()" }, { label: "len()" }, { label: "range()" }],
+                answerIndex: 0,
+                explanation: "Como input() devolve texto, a conversao vem antes do calculo.",
+              },
+              {
+                prompt: "Qual formato deixa a saida mais clara em frases com variaveis?",
+                options: [{ label: "f-string" }, { label: "break" }, { label: "pass" }],
+                answerIndex: 0,
+                explanation: "f-strings ajudam a montar mensagens mais legiveis e naturais.",
+              },
+              {
+                prompt: "Qual fluxo resume melhor a semana 2?",
+                options: [
+                  { label: "Pedir dado, converter, calcular e mostrar" },
+                  { label: "Criar classe, instalar pacote e publicar API" },
+                  { label: "Abrir navegador e editar HTML" },
+                ],
+                answerIndex: 0,
+                explanation: "A semana 2 treina exatamente esse caminho basico de entrada e saida.",
               },
             ],
           },
@@ -903,11 +954,8 @@ const semana3 = {
           title: "Exemplos",
           ordered: false,
           items: [
-            "if idade >= 18:",
-            "    print('Maior de idade')",
-            "",
-            "if nota >= 7:",
-            "    print('Aprovado')",
+            "idade = 20\nif idade >= 18:\n    print('Maior de idade')",
+            "nota = 8\nif nota >= 7:\n    print('Aprovado')",
           ],
         },
         {
@@ -964,10 +1012,7 @@ const semana3 = {
           title: "Exemplos",
           ordered: false,
           items: [
-            "if idade >= 18:",
-            "    print('Maior de idade')",
-            "else:",
-            "    print('Menor de idade')",
+            "idade = 16\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')",
           ],
         },
         {
@@ -1018,12 +1063,7 @@ const semana3 = {
           title: "Exemplos",
           ordered: false,
           items: [
-            "if nota >= 9:",
-            "    print('Excelente')",
-            "elif nota >= 7:",
-            "    print('Bom')",
-            "else:",
-            "    print('Precisa melhorar')",
+            "nota = 8\nif nota >= 9:\n    print('Excelente')\nelif nota >= 7:\n    print('Bom')\nelse:\n    print('Precisa melhorar')",
           ],
         },
         {
@@ -1070,11 +1110,8 @@ const semana3 = {
           title: "Exemplos",
           ordered: false,
           items: [
-            "if idade >= 18 and tem_carteira:",
-            "    print('Pode dirigir')",
-            "",
-            "if nota >= 7 and presenca >= 75:",
-            "    print('Aprovado')",
+            "idade = 20\ntem_carteira = True\nif idade >= 18 and tem_carteira:\n    print('Pode dirigir')",
+            "nota = 7.5\npresenca = 80\nif nota >= 7 and presenca >= 75:\n    print('Aprovado')",
           ],
         },
         {
@@ -1125,11 +1162,8 @@ const semana3 = {
           title: "Exemplos",
           ordered: false,
           items: [
-            "if dia == 'sabado' or dia == 'domingo':",
-            "    print('Final de semana')",
-            "",
-            "if idade < 12 or idade > 65:",
-            "    print('Desconto disponivel')",
+            "dia = 'sabado'\nif dia == 'sabado' or dia == 'domingo':\n    print('Final de semana')",
+            "idade = 70\nif idade < 12 or idade > 65:\n    print('Desconto disponivel')",
           ],
         },
         {
@@ -1180,11 +1214,8 @@ const semana3 = {
           title: "Exemplos",
           ordered: false,
           items: [
-            "if not tem_acesso:",
-            "    print('Acesso negado')",
-            "",
-            "if not (idade >= 18):",
-            "    print('Menor de idade')",
+            "tem_acesso = False\nif not tem_acesso:\n    print('Acesso negado')",
+            "idade = 15\nif not (idade >= 18):\n    print('Menor de idade')",
           ],
         },
         {
@@ -1237,11 +1268,15 @@ const semana3 = {
             "Sistema de desconto (idade ou cupom).",
             "Calculadora simples que escolhe operacao.",
             "Refaca dois exercicios da semana sem olhar.",
+            "Valide se uma pessoa pode dirigir com base em idade e carteira.",
+            "Classifique tres notas diferentes com if, elif e else.",
+            "Monte um verificador de acesso com usuario, senha e nivel.",
+            "Crie um mini-projeto final: painel de aluno com nota, presenca, recuperacao e mensagem final.",
           ],
         },
-        {
-          type: "quiz",
-          title: "Multipla escolha",
+          {
+            type: "quiz",
+            title: "Multipla escolha",
           questions: [
             {
               prompt: "Qual estrutura testa multiplas condicoes?",
@@ -1254,6 +1289,28 @@ const semana3 = {
               options: [{ label: "and" }, { label: "or" }, { label: "not" }],
               answerIndex: 0,
               explanation: "O and exige que ambas as condicoes sejam verdadeiras.",
+            },
+            {
+              prompt: "Qual bloco e executado quando nenhuma condicao anterior foi atendida?",
+              options: [{ label: "else" }, { label: "elif" }, { label: "input()" }],
+              answerIndex: 0,
+              explanation: "O else funciona como caminho final padrao quando os testes anteriores falham.",
+            },
+            {
+              prompt: "Qual operador inverte o resultado de uma condicao?",
+              options: [{ label: "not" }, { label: "and" }, { label: "==" }],
+              answerIndex: 0,
+              explanation: "not transforma True em False e False em True.",
+            },
+            {
+              prompt: "Quando usar elif faz mais sentido?",
+              options: [
+                { label: "Quando ha mais de duas possibilidades de resposta" },
+                { label: "Quando quero repetir um bloco para sempre" },
+                { label: "Quando quero converter texto em numero" },
+              ],
+              answerIndex: 0,
+              explanation: "elif entra quando voce precisa testar caminhos intermediarios entre o if e o else.",
             },
           ],
         },
