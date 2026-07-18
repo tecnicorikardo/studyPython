@@ -1,365 +1,528 @@
-const lessons = [
-  {
-    id: "semana-1-visao-geral",
-    weekDay: "Semana 1",
-    title: "Variaveis e operadores",
-    goal: "Estudar durante 7 dias apenas variaveis, tipos de dados e operadores basicos.",
-    focus: ["variaveis", "strings", "int", "float", "operadores", "comparacao"],
-    blocks: [
-      {
-        type: "text",
-        title: "Explicacao da semana",
-        content:
-          "Nesta primeira semana o foco e aprender como guardar valores em variaveis, entender tipos de dados e usar operadores matematicos e de comparacao. A ideia e repetir bastante os mesmos conceitos ate eles ficarem naturais.",
-      },
-      {
-        type: "list",
-        title: "O que voce vai ver nesta semana",
-        ordered: true,
-        items: [
-          "Criacao de variaveis e regras de nomes.",
-          "Textos com strings.",
-          "Numeros inteiros e decimais.",
-          "Uso de type() e conversao de tipos.",
-          "Operadores de soma, subtracao, multiplicacao e divisao.",
-          "Operadores como %, // e **.",
-          "Comparacoes como ==, >, <, >= e <=.",
-        ],
-      },
-      {
-        type: "qa",
-        title: "Perguntas e respostas rapidas",
-        items: [
-          {
-            question: "O que e uma variavel?",
-            answer: "E um nome usado para guardar um valor dentro do programa.",
-          },
-          {
-            question: "Para que serve o type()?",
-            answer: "Para descobrir o tipo de dado armazenado em uma variavel.",
-          },
-        ],
-      },
-      {
-        type: "input",
-        title: "Meta da semana",
-        fields: [
-          {
-            label: "Escreva o que voce quer memorizar ate o fim desta semana",
-            inputType: "textarea",
-            placeholder: "Ex.: criar variaveis sem travar e resolver contas simples com operadores",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "dia-1",
-    weekDay: "Dia 1",
-    title: "Variaveis e nomes",
-    goal: "Aprender a criar variaveis e dar nomes claros para cada valor.",
-    focus: ["variaveis", "nomes", "atribuicao"],
+function createWeek({
+  id,
+  weekDay,
+  title,
+  goal,
+  focus,
+  explanation,
+  examples,
+  exercises,
+  challenge,
+  project,
+}) {
+  return {
+    id,
+    weekDay,
+    title,
+    goal,
+    focus,
     blocks: [
       {
         type: "text",
         title: "Explicacao",
-        content:
-          "Variavel e um espaco com nome para guardar um valor. Em Python, voce cria uma variavel usando o sinal de igual. Bons nomes ajudam a entender o codigo sem precisar de explicacao extra.",
+        content: explanation,
       },
       {
         type: "list",
         title: "Exemplos",
         ordered: false,
-        items: [
-          "nome = 'Ricardo'",
-          "idade = 30",
-          "cidade = 'Sao Paulo'",
-          "salario = 2500.50",
-        ],
+        items: examples,
       },
       {
         type: "list",
         title: "Exercicios",
         ordered: true,
-        items: [
-          "Crie variaveis para nome, idade e profissao.",
-          "Crie uma variavel para guardar o valor de um produto.",
-          "Crie duas variaveis com nomes ruins e depois reescreva com nomes melhores.",
-        ],
+        items: exercises,
       },
       {
         type: "text",
-        title: "Desafio do dia",
-        content:
-          "Monte um pequeno cadastro com cinco variaveis diferentes e depois mostre no terminal o que cada uma representa.",
-      },
-    ],
-  },
-  {
-    id: "dia-2",
-    weekDay: "Dia 2",
-    title: "Tipos de dados",
-    goal: "Entender strings, inteiros, floats e booleanos.",
-    focus: ["string", "int", "float", "bool", "type"],
-    blocks: [
-      {
-        type: "text",
-        title: "Explicacao",
-        content:
-          "Cada valor tem um tipo. Strings guardam texto, int guarda numero inteiro, float guarda numero com casas decimais e bool representa verdadeiro ou falso.",
-      },
-      {
-        type: "list",
-        title: "Exemplos",
-        ordered: false,
-        items: [
-          "nome = 'Ana' -> string",
-          "idade = 20 -> int",
-          "altura = 1.75 -> float",
-          "ativo = True -> bool",
-        ],
-      },
-      {
-        type: "list",
-        title: "Exercicios",
-        ordered: true,
-        items: [
-          "Crie uma variavel de cada tipo e use type() para conferir.",
-          "Escreva tres exemplos de string, tres de int e tres de float.",
-          "Crie dois exemplos com True e False.",
-        ],
-      },
-      {
-        type: "text",
-        title: "Desafio do dia",
-        content:
-          "Crie um bloco de variaveis para representar uma pessoa e identifique o tipo de cada dado usado.",
-      },
-    ],
-  },
-  {
-    id: "dia-3",
-    weekDay: "Dia 3",
-    title: "Conversao de tipos",
-    goal: "Aprender a converter valores com int(), float() e str().",
-    focus: ["conversao", "int()", "float()", "str()"],
-    blocks: [
-      {
-        type: "text",
-        title: "Explicacao",
-        content:
-          "Nem sempre o valor ja vem no tipo que voce precisa. A conversao ajuda a transformar texto em numero, numero em texto e ajustar os dados para a conta ou exibicao.",
-      },
-      {
-        type: "list",
-        title: "Exemplos",
-        ordered: false,
-        items: [
-          "idade = int('25')",
-          "preco = float('19.90')",
-          "mensagem = str(2026)",
-        ],
-      },
-      {
-        type: "list",
-        title: "Exercicios",
-        ordered: true,
-        items: [
-          "Converta o texto '100' para inteiro.",
-          "Converta o texto '45.8' para float.",
-          "Converta o numero 500 para string e junte com uma frase.",
-        ],
-      },
-      {
-        type: "text",
-        title: "Desafio do dia",
-        content:
-          "Simule a leitura de dois numeros em texto e converta os dois antes de somar.",
-      },
-    ],
-  },
-  {
-    id: "dia-4",
-    weekDay: "Dia 4",
-    title: "Operadores matematicos",
-    goal: "Treinar soma, subtracao, multiplicacao e divisao.",
-    focus: ["+", "-", "*", "/"],
-    blocks: [
-      {
-        type: "text",
-        title: "Explicacao",
-        content:
-          "Os operadores matematicos fazem contas entre valores. Eles sao a base para calcular media, total, desconto, salario, idade e muitos outros problemas simples.",
-      },
-      {
-        type: "list",
-        title: "Exemplos",
-        ordered: false,
-        items: [
-          "10 + 5 = 15",
-          "10 - 5 = 5",
-          "10 * 5 = 50",
-          "10 / 5 = 2.0",
-        ],
-      },
-      {
-        type: "list",
-        title: "Exercicios",
-        ordered: true,
-        items: [
-          "Crie duas variaveis numericas e mostre a soma delas.",
-          "Crie um programa que calcule o dobro e a metade de um numero.",
-          "Calcule a media de tres notas.",
-        ],
-      },
-      {
-        type: "text",
-        title: "Desafio do dia",
-        content:
-          "Monte uma conta com varias operacoes juntas e confira se o resultado ficou como voce esperava.",
-      },
-    ],
-  },
-  {
-    id: "dia-5",
-    weekDay: "Dia 5",
-    title: "Operadores avancados",
-    goal: "Entender resto, divisao inteira e potenciacao.",
-    focus: ["%", "//", "**"],
-    blocks: [
-      {
-        type: "text",
-        title: "Explicacao",
-        content:
-          "Alguns operadores aparecem muito em exercicios: % mostra o resto da divisao, // devolve a divisao inteira e ** faz potenciacao.",
-      },
-      {
-        type: "list",
-        title: "Exemplos",
-        ordered: false,
-        items: [
-          "10 % 3 = 1",
-          "10 // 3 = 3",
-          "2 ** 3 = 8",
-        ],
-      },
-      {
-        type: "list",
-        title: "Exercicios",
-        ordered: true,
-        items: [
-          "Descubra se um numero e par usando %.",
-          "Mostre quantos grupos completos de 4 pessoas cabem em 19 pessoas usando //.",
-          "Calcule o quadrado e o cubo de um numero com **.",
-        ],
-      },
-      {
-        type: "text",
-        title: "Desafio do dia",
-        content:
-          "Crie um exercicio que misture %, // e ** no mesmo problema, como vagas, grupos ou pontos de jogo.",
-      },
-    ],
-  },
-  {
-    id: "dia-6",
-    weekDay: "Dia 6",
-    title: "Operadores de comparacao",
-    goal: "Aprender a comparar valores e entender resultados True e False.",
-    focus: ["==", "!=", ">", "<", ">=", "<="],
-    blocks: [
-      {
-        type: "text",
-        title: "Explicacao",
-        content:
-          "Comparacoes servem para verificar se um valor e maior, menor, igual ou diferente de outro. O resultado sempre sera verdadeiro ou falso.",
-      },
-      {
-        type: "list",
-        title: "Exemplos",
-        ordered: false,
-        items: [
-          "10 > 5 -> True",
-          "7 == 8 -> False",
-          "9 != 4 -> True",
-          "6 <= 6 -> True",
-        ],
-      },
-      {
-        type: "list",
-        title: "Exercicios",
-        ordered: true,
-        items: [
-          "Compare duas idades e diga qual e maior.",
-          "Verifique se um numero e igual a 100.",
-          "Mostre se um salario e maior ou menor que 3000.",
-        ],
-      },
-      {
-        type: "text",
-        title: "Desafio do dia",
-        content:
-          "Crie cinco comparacoes diferentes e tente prever o resultado antes de rodar.",
-      },
-    ],
-  },
-  {
-    id: "dia-7",
-    weekDay: "Dia 7",
-    title: "Projeto semanal",
-    goal: "Fechar a semana com um mini projeto usando variaveis e operadores.",
-    focus: ["projeto", "cadastro", "calculos", "comparacoes"],
-    blocks: [
-      {
-        type: "text",
-        title: "Explicacao",
-        content:
-          "Hoje o foco e juntar tudo o que voce treinou na semana. O projeto nao precisa ser grande; ele precisa apenas usar bem os fundamentos.",
-      },
-      {
-        type: "list",
-        title: "Exemplos de projeto",
-        ordered: false,
-        items: [
-          "Cadastro simples com nome, idade e profissao.",
-          "Calculadora basica com duas entradas numericas.",
-          "Ficha de produto com nome, preco, desconto e preco final.",
-        ],
-      },
-      {
-        type: "list",
-        title: "Exercicios finais",
-        ordered: true,
-        items: [
-          "Escolha um dos projetos e escreva as variaveis que vai usar.",
-          "Adicione pelo menos quatro operacoes matematicas ou comparacoes.",
-          "Mostre tudo com frases claras no terminal.",
-        ],
-      },
-      {
-        type: "text",
-        title: "Desafio final",
-        content:
-          "Crie um sistema de cadastro simples com nome, idade, profissao, salario, bonus e salario final. Depois compare se o salario final ficou acima de um valor definido por voce.",
+        title: "Desafio",
+        content: challenge,
       },
       {
         type: "input",
         title: "Projeto semanal",
         fields: [
           {
-            label: "Qual projeto voce vai fazer nesta semana?",
+            label: "Projeto da semana",
             inputType: "text",
-            placeholder: "Ex.: cadastro simples com calculo de bonus",
+            placeholder: project,
           },
           {
-            label: "Escreva a mensagem de commit para quando terminar essa semana",
+            label: "Mensagem de commit para fechar esta semana",
             inputType: "text",
-            placeholder: "Ex.: finaliza semana 1 de variaveis e operadores",
+            placeholder: `Ex.: finaliza ${weekDay.toLowerCase()} de ${title.toLowerCase()}`,
           },
         ],
       },
     ],
-  },
+  };
+}
+
+const lessons = [
+  createWeek({
+    id: "semana-1",
+    weekDay: "Semana 1",
+    title: "Introducao ao Python",
+    goal: "Conhecer a linguagem, preparar o ambiente e rodar os primeiros programas.",
+    focus: ["python", "vscode", "print()", "comentarios", "erros basicos"],
+    explanation:
+      "Nesta semana voce vai entender o que e Python, onde ele e usado, como instalar a linguagem e como executar seus primeiros comandos. O foco e perder o medo do ambiente e aprender a testar ideias pequenas no terminal.",
+    examples: [
+      "print('Ola, mundo!')",
+      "# Este e um comentario",
+      "print('Meu primeiro programa em Python')",
+    ],
+    exercises: [
+      "Instale o Python e confirme a versao no terminal.",
+      "Instale o VS Code e crie um arquivo .py simples.",
+      "Escreva tres mensagens diferentes usando print().",
+      "Adicione comentarios explicando o que cada linha faz.",
+    ],
+    challenge:
+      "Monte um pequeno arquivo de apresentacao com seu nome, cidade e objetivo com Python, exibindo tudo no terminal sem erros.",
+    project: "Criar uma mensagem de apresentacao no terminal.",
+  }),
+  createWeek({
+    id: "semana-2",
+    weekDay: "Semana 2",
+    title: "Variaveis e tipos de dados",
+    goal: "Aprender a guardar informacoes em variaveis e reconhecer os tipos basicos.",
+    focus: ["variaveis", "strings", "int", "float", "bool", "type()"],
+    explanation:
+      "Agora o foco e aprender a criar variaveis, armazenar textos e numeros e identificar o tipo de cada valor. Essa base e essencial porque praticamente todo programa usa variaveis o tempo inteiro.",
+    examples: [
+      "nome = 'Ricardo'",
+      "idade = 30",
+      "altura = 1.75",
+      "ativo = True",
+    ],
+    exercises: [
+      "Crie variaveis para nome, idade e profissao.",
+      "Monte exemplos com string, int, float e bool.",
+      "Use type() para descobrir o tipo de cinco valores diferentes.",
+      "Reescreva variaveis com nomes melhores e mais claros.",
+    ],
+    challenge:
+      "Crie um cadastro simples com nome, idade, profissao e salario e depois exiba tudo no terminal com frases completas.",
+    project: "Cadastro simples com nome, idade e profissao.",
+  }),
+  createWeek({
+    id: "semana-3",
+    weekDay: "Semana 3",
+    title: "Operadores",
+    goal: "Treinar operadores matematicos, comparacoes e logica basica.",
+    focus: ["+", "-", "*", "/", "%", "**", "==", "and", "or"],
+    explanation:
+      "Com as variaveis dominadas, voce passa a operar os valores. Nesta semana entram contas, comparacoes, ordem das operacoes e expressoes logicas que serao usadas mais a frente em condicoes e validacoes.",
+    examples: [
+      "soma = 10 + 5",
+      "resto = 10 % 3",
+      "potencia = 2 ** 3",
+      "comparacao = 8 > 4",
+    ],
+    exercises: [
+      "Some dois numeros e mostre o resultado.",
+      "Calcule media, dobro e metade de um valor.",
+      "Use % para verificar se um numero e par.",
+      "Crie cinco comparacoes e diga se o resultado sera True ou False.",
+    ],
+    challenge:
+      "Monte uma calculadora simples que mostre soma, subtracao, multiplicacao, divisao e uma comparacao entre dois numeros.",
+    project: "Calculadora simples.",
+  }),
+  createWeek({
+    id: "semana-4",
+    weekDay: "Semana 4",
+    title: "Entrada e saida de dados",
+    goal: "Receber dados do usuario, converter valores e formatar mensagens.",
+    focus: ["input()", "str()", "int()", "float()", "f-strings"],
+    explanation:
+      "Esta semana conecta o programa com o usuario. Voce vai receber textos e numeros com input(), converter tipos quando necessario e aprender a montar saidas mais bonitas usando f-strings.",
+    examples: [
+      "nome = input('Digite seu nome: ')",
+      "idade = int(input('Digite sua idade: '))",
+      "print(f'Voce tem {idade} anos')",
+    ],
+    exercises: [
+      "Leia nome e idade e mostre uma frase completa.",
+      "Receba duas notas e calcule a media.",
+      "Peça salario e calcule um reajuste simples.",
+      "Treine f-strings com pelo menos tres mensagens diferentes.",
+    ],
+    challenge:
+      "Crie um programa que receba dados de uma pessoa, converta os valores numericos e exiba um resumo formatado no final.",
+    project: "Calcular idade, salario ou media de notas.",
+  }),
+  createWeek({
+    id: "semana-5",
+    weekDay: "Semana 5",
+    title: "Condicoes",
+    goal: "Tomar decisoes com if, elif e else.",
+    focus: ["if", "elif", "else", "and", "or", "not"],
+    explanation:
+      "Aqui o programa deixa de ser linear e passa a decidir caminhos. O foco e comparar valores, combinar condicoes e responder diferente de acordo com o resultado.",
+    examples: [
+      "if nota >= 7:",
+      "elif nota >= 5:",
+      "else:",
+    ],
+    exercises: [
+      "Verifique se um numero e positivo, negativo ou zero.",
+      "Leia uma idade e informe a faixa etaria.",
+      "Monte um verificador de aprovacao com media e frequencia.",
+      "Use and, or e not em validacoes pequenas.",
+    ],
+    challenge:
+      "Crie um sistema que leia duas notas e informe se a pessoa foi aprovada, recuperacao ou reprovada.",
+    project: "Sistema que informa se uma pessoa foi aprovada ou reprovada.",
+  }),
+  createWeek({
+    id: "semana-6",
+    weekDay: "Semana 6",
+    title: "Laco while",
+    goal: "Aprender repeticoes controladas com while.",
+    focus: ["while", "contadores", "acumuladores", "break", "continue"],
+    explanation:
+      "O while serve para repetir um bloco enquanto uma condicao for verdadeira. Nesta semana voce aprende a controlar repeticoes, evitar loop infinito e usar contadores e acumuladores.",
+    examples: [
+      "while contador < 5:",
+      "contador += 1",
+      "if tentativa == senha: break",
+    ],
+    exercises: [
+      "Conte de 1 ate 10 com while.",
+      "Some numeros ate atingir um limite.",
+      "Repita ate o usuario digitar sair.",
+      "Use break e continue em exemplos curtos.",
+    ],
+    challenge:
+      "Monte um programa de tentativas de senha com limite de erros e mensagem final de sucesso ou bloqueio.",
+    project: "Sistema de tentativas de senha.",
+  }),
+  createWeek({
+    id: "semana-7",
+    weekDay: "Semana 7",
+    title: "Laco for",
+    goal: "Percorrer sequencias e contar repeticoes com for.",
+    focus: ["for", "range()", "tabuada", "break", "continue"],
+    explanation:
+      "O for e excelente quando voce sabe quantas vezes quer repetir ou quando precisa percorrer textos e sequencias. Aqui entram contagens, tabuadas e lacos aninhados.",
+    examples: [
+      "for numero in range(5):",
+      "for letra in 'Python':",
+      "for i in range(1, 11):",
+    ],
+    exercises: [
+      "Mostre os numeros de 1 a 10.",
+      "Exiba apenas os numeros pares de 0 a 20.",
+      "Percorra uma palavra e mostre letra por letra.",
+      "Monte uma tabuada com for.",
+    ],
+    challenge:
+      "Gere automaticamente a tabuada de varios numeros com for e range().",
+    project: "Gerar tabuadas automaticamente.",
+  }),
+  createWeek({
+    id: "semana-8",
+    weekDay: "Semana 8",
+    title: "Listas",
+    goal: "Criar, alterar e percorrer listas.",
+    focus: ["listas", "append()", "remove()", "sort()", "for"],
+    explanation:
+      "Listas guardam varios valores juntos. Voce vai aprender a acessar elementos, mudar itens, adicionar, remover e percorrer tudo com repeticao.",
+    examples: [
+      "nomes = ['Ana', 'Joao', 'Carlos']",
+      "nomes.append('Maria')",
+      "nomes.remove('Ana')",
+    ],
+    exercises: [
+      "Crie uma lista com cinco nomes.",
+      "Adicione e remova itens da lista.",
+      "Ordene uma lista numerica.",
+      "Percorra uma lista e mostre todos os elementos.",
+    ],
+    challenge:
+      "Monte uma lista de tarefas simples que permita adicionar itens, listar tudo e remover uma tarefa.",
+    project: "Lista de compras ou lista de tarefas.",
+  }),
+  createWeek({
+    id: "semana-9",
+    weekDay: "Semana 9",
+    title: "Tuplas e conjuntos",
+    goal: "Diferenciar estruturas imutaveis e colecoes sem repeticao.",
+    focus: ["tuplas", "conjuntos", "set()", "uniao", "intersecao"],
+    explanation:
+      "Tuplas ajudam quando os dados nao devem mudar. Conjuntos servem muito bem para eliminar repeticoes e fazer operacoes como uniao e intersecao.",
+    examples: [
+      "cores = ('azul', 'verde', 'vermelho')",
+      "numeros = {1, 2, 3, 3}",
+      "resultado = {1, 2} | {2, 3}",
+    ],
+    exercises: [
+      "Crie uma tupla com dias da semana.",
+      "Acesse elementos de uma tupla pelo indice.",
+      "Crie um conjunto com valores repetidos e veja o resultado.",
+      "Teste uniao e intersecao entre dois conjuntos.",
+    ],
+    challenge:
+      "Receba uma lista com nomes repetidos e gere uma versao sem duplicidades usando conjunto.",
+    project: "Organizar uma lista sem itens repetidos.",
+  }),
+  createWeek({
+    id: "semana-10",
+    weekDay: "Semana 10",
+    title: "Dicionarios",
+    goal: "Organizar dados em pares de chave e valor.",
+    focus: ["dict", "chaves", "valores", "items()", "keys()", "values()"],
+    explanation:
+      "Dicionarios sao otimos para cadastros e estruturas organizadas. Em vez de depender de posicao, voce acessa informacoes pelo nome da chave.",
+    examples: [
+      "pessoa = {'nome': 'Ana', 'idade': 25}",
+      "pessoa['cidade'] = 'Recife'",
+      "for chave, valor in pessoa.items():",
+    ],
+    exercises: [
+      "Crie um dicionario com dados de um produto.",
+      "Adicione uma nova chave em um cadastro.",
+      "Altere o valor de uma chave existente.",
+      "Percorra o dicionario mostrando chave e valor.",
+    ],
+    challenge:
+      "Monte um cadastro de funcionario ou produto usando dicionarios e exiba os dados organizados no final.",
+    project: "Cadastro de funcionarios ou produtos.",
+  }),
+  createWeek({
+    id: "semana-11",
+    weekDay: "Semana 11",
+    title: "Funcoes",
+    goal: "Separar o codigo em partes reutilizaveis.",
+    focus: ["def", "parametros", "argumentos", "return", "escopo"],
+    explanation:
+      "Funcoes ajudam a evitar repeticao e deixam o codigo mais organizado. Nesta semana voce aprende a criar blocos reutilizaveis com entrada e retorno de valores.",
+    examples: [
+      "def somar(a, b):",
+      "    return a + b",
+      "resultado = somar(2, 3)",
+    ],
+    exercises: [
+      "Crie uma funcao que soma dois numeros.",
+      "Crie uma funcao que mostra uma saudacao personalizada.",
+      "Crie uma funcao com valor padrao.",
+      "Faça uma funcao que devolve o maior numero entre dois valores.",
+    ],
+    challenge:
+      "Refatore uma calculadora simples para que cada operacao fique em uma funcao separada.",
+    project: "Calculadora utilizando funcoes.",
+  }),
+  createWeek({
+    id: "semana-12",
+    weekDay: "Semana 12",
+    title: "Manipulacao de strings",
+    goal: "Trabalhar melhor com textos e validacoes simples.",
+    focus: ["upper()", "lower()", "replace()", "split()", "strip()"],
+    explanation:
+      "Strings aparecem em quase todo programa. Aqui voce vai aprender a alterar, dividir, limpar e procurar informacoes em textos.",
+    examples: [
+      "nome.upper()",
+      "frase.replace('Python', 'JavaScript')",
+      "palavras = texto.split()",
+    ],
+    exercises: [
+      "Transforme um texto em maiusculas e minusculas.",
+      "Troque uma palavra por outra com replace().",
+      "Separe uma frase em palavras com split().",
+      "Remova espacos extras com strip().",
+    ],
+    challenge:
+      "Crie um analisador que leia um nome completo e mostre quantidade de letras, primeira palavra e ultima palavra.",
+    project: "Analisador de nomes e frases.",
+  }),
+  createWeek({
+    id: "semana-13",
+    weekDay: "Semana 13",
+    title: "Tratamento de erros",
+    goal: "Evitar que o programa quebre com entradas invalidas.",
+    focus: ["try", "except", "else", "finally", "ValueError"],
+    explanation:
+      "Todo programa real precisa lidar com erros. Nesta semana voce aprende a proteger conversoes e operacoes que podem falhar, exibindo mensagens amigaveis.",
+    examples: [
+      "try:",
+      "    numero = int(input('Digite um numero: '))",
+      "except ValueError:",
+    ],
+    exercises: [
+      "Trate erro ao converter texto para inteiro.",
+      "Crie um exemplo com try e except.",
+      "Adicione else e finally em um pequeno teste.",
+      "Mostre uma mensagem personalizada em caso de erro.",
+    ],
+    challenge:
+      "Monte uma calculadora que continue funcionando mesmo quando o usuario digitar algo invalido.",
+    project: "Calculadora que nao fecha quando o usuario digita algo errado.",
+  }),
+  createWeek({
+    id: "semana-14",
+    weekDay: "Semana 14",
+    title: "Arquivos",
+    goal: "Ler e gravar dados em arquivos de texto.",
+    focus: ["open()", "read()", "write()", "append", "with open"],
+    explanation:
+      "Arquivos permitem salvar informacoes fora do programa. Aqui voce vai criar, ler, escrever e adicionar conteudo em arquivos .txt usando boas praticas.",
+    examples: [
+      "with open('dados.txt', 'w') as arquivo:",
+      "    arquivo.write('Ola')",
+      "with open('dados.txt', 'r') as arquivo:",
+    ],
+    exercises: [
+      "Crie um arquivo .txt e escreva uma mensagem nele.",
+      "Leia o arquivo e mostre o conteudo no terminal.",
+      "Adicione novas linhas ao arquivo.",
+      "Use with open em todos os testes.",
+    ],
+    challenge:
+      "Crie um bloco de notas simples em terminal capaz de salvar e ler anotacoes.",
+    project: "Bloco de notas no terminal.",
+  }),
+  createWeek({
+    id: "semana-15",
+    weekDay: "Semana 15",
+    title: "Modulos e bibliotecas",
+    goal: "Reutilizar codigo pronto e organizar melhor seus arquivos.",
+    focus: ["import", "math", "random", "datetime", "pip"],
+    explanation:
+      "Nesta semana voce aprende a importar modulos prontos, usar bibliotecas comuns e criar seu proprio modulo para reaproveitar funcoes.",
+    examples: [
+      "import math",
+      "import random",
+      "from datetime import datetime",
+    ],
+    exercises: [
+      "Use math para raiz quadrada ou arredondamento.",
+      "Use random para sortear um numero.",
+      "Mostre a data atual com datetime.",
+      "Crie um modulo proprio com pelo menos duas funcoes.",
+    ],
+    challenge:
+      "Monte um sorteador de nomes ou numeros que use bibliotecas prontas e uma funcao criada por voce.",
+    project: "Sorteador de nomes ou numeros.",
+  }),
+  createWeek({
+    id: "semana-16",
+    weekDay: "Semana 16",
+    title: "Programacao orientada a objetos",
+    goal: "Entender classes, objetos, atributos e metodos.",
+    focus: ["class", "__init__", "objetos", "metodos", "heranca"],
+    explanation:
+      "A orientacao a objetos ajuda a modelar o programa em entidades do mundo real. O foco aqui e criar classes, instancias e organizar comportamento em metodos.",
+    examples: [
+      "class Pessoa:",
+      "    def __init__(self, nome):",
+      "        self.nome = nome",
+    ],
+    exercises: [
+      "Crie uma classe Pessoa com nome e idade.",
+      "Adicione um metodo para apresentar a pessoa.",
+      "Crie uma classe Conta com saldo e deposito.",
+      "Teste uma heranca simples entre classes.",
+    ],
+    challenge:
+      "Monte um sistema pequeno de conta bancaria ou cadastro de pessoas usando classes e objetos.",
+    project: "Sistema de conta bancaria ou cadastro de pessoas.",
+  }),
+  createWeek({
+    id: "semana-17",
+    weekDay: "Semana 17",
+    title: "Banco de dados com SQLite",
+    goal: "Guardar dados de forma persistente em banco local.",
+    focus: ["sqlite3", "tabelas", "insert", "select", "update", "delete"],
+    explanation:
+      "Com SQLite voce consegue salvar registros de forma mais estruturada. Nesta semana entram criacao de tabelas, insercao, consulta e alteracao de dados.",
+    examples: [
+      "import sqlite3",
+      "conn = sqlite3.connect('banco.db')",
+      "cursor.execute('CREATE TABLE usuarios (...)')",
+    ],
+    exercises: [
+      "Crie um banco SQLite local.",
+      "Monte uma tabela simples de usuarios ou produtos.",
+      "Insira registros na tabela.",
+      "Consulte e exiba os dados no terminal.",
+    ],
+    challenge:
+      "Construa um mini cadastro com inserir, listar, atualizar e excluir dados usando SQLite.",
+    project: "Sistema de cadastro de usuarios.",
+  }),
+  createWeek({
+    id: "semana-18",
+    weekDay: "Semana 18",
+    title: "APIs",
+    goal: "Consumir dados de servicos externos pela internet.",
+    focus: ["api", "requests", "get", "post", "json"],
+    explanation:
+      "APIs permitem que seu programa converse com outros sistemas. O foco desta semana e fazer requisicoes, trabalhar com JSON e tratar falhas de conexao.",
+    examples: [
+      "import requests",
+      "resposta = requests.get('https://api.exemplo.com/dados')",
+      "dados = resposta.json()",
+    ],
+    exercises: [
+      "Faça uma requisicao GET simples.",
+      "Leia e exiba dados retornados em JSON.",
+      "Teste uma API publica de previsao, endereco ou cotacao.",
+      "Trate erro quando a conexao falhar.",
+    ],
+    challenge:
+      "Crie um programa que consulte uma API publica e mostre os dados principais de forma amigavel no terminal.",
+    project: "Consultar previsao do tempo, endereco ou cotacao.",
+  }),
+  createWeek({
+    id: "semana-19",
+    weekDay: "Semana 19",
+    title: "Desenvolvimento web com Flask",
+    goal: "Criar um site simples com rotas, formulario e estilo.",
+    focus: ["flask", "rotas", "templates", "css", "formularios"],
+    explanation:
+      "Aqui voce leva o Python para a web. Vai criar rotas, renderizar HTML, usar CSS, trabalhar com formularios e integrar dados com o backend.",
+    examples: [
+      "from flask import Flask, render_template, request",
+      "@app.route('/')",
+      "return render_template('index.html')",
+    ],
+    exercises: [
+      "Crie um servidor Flask simples.",
+      "Monte uma rota principal com HTML.",
+      "Adicione um formulario e receba dados.",
+      "Estilize a pagina com CSS basico.",
+    ],
+    challenge:
+      "Monte um site de cadastro simples com formulario, resposta na tela e estrutura organizada.",
+    project: "Site de cadastro simples.",
+  }),
+  createWeek({
+    id: "semana-20",
+    weekDay: "Semana 20",
+    title: "Projeto final",
+    goal: "Juntar os principais conceitos em um sistema completo.",
+    focus: ["variaveis", "condicoes", "lacos", "listas", "funcoes", "flask", "sqlite"],
+    explanation:
+      "A ultima semana e para consolidar tudo. O ideal e escolher um projeto que use varias partes da trilha, como cadastro, validacao, persistencia, interface e organizacao do codigo.",
+    examples: [
+      "Sistema financeiro",
+      "Agenda de consultas",
+      "Lista de tarefas",
+      "Controle de estoque",
+    ],
+    exercises: [
+      "Escolha um tema de projeto e liste as funcionalidades.",
+      "Defina quais telas, dados e regras serao necessarios.",
+      "Separe o que vai usar de Python puro, banco e Flask.",
+      "Implemente uma primeira versao funcional e depois refine.",
+    ],
+    challenge:
+      "Crie um sistema completo com cadastro, listagem, validacoes, tratamento de erros e uma interface simples para uso real.",
+    project: "Sistema completo utilizando os principais fundamentos estudados.",
+  }),
   {
     id: "github-basico",
     weekDay: "Trilha extra",
@@ -369,26 +532,42 @@ const lessons = [
     blocks: [
       {
         type: "text",
-        title: "Regra pratica para comecar",
+        title: "Explicacao",
         content:
           "Sempre que iniciar ou retomar uma aula, vale fazer git pull para trazer a versao mais recente. Durante a aula, faca commits pequenos e claros sempre que concluir uma parte importante.",
       },
       {
         type: "list",
-        title: "O que memorizar primeiro",
-        ordered: true,
+        title: "Exemplos",
+        ordered: false,
         items: [
-          "git status para ver o que mudou no projeto.",
-          "git pull para baixar atualizacoes do repositorio remoto antes de continuar.",
-          "git add . para preparar alteracoes para o commit.",
-          "git commit -m \"mensagem clara\" para registrar uma etapa concluida.",
-          "git push para enviar seus commits ao GitHub.",
-          "git branch para ver em qual branch voce esta trabalhando.",
+          "git status",
+          "git pull",
+          "git add .",
+          "git commit -m \"mensagem clara\"",
+          "git push",
         ],
       },
       {
+        type: "list",
+        title: "Exercicios",
+        ordered: true,
+        items: [
+          "Use git status antes de qualquer alteracao.",
+          "Faça um commit pequeno ao terminar uma aula.",
+          "Envie o commit ao GitHub com git push.",
+          "Repita esse fluxo ate ele ficar automatico.",
+        ],
+      },
+      {
+        type: "text",
+        title: "Desafio",
+        content:
+          "Treine o fluxo completo em um repositorio de estudo: pull, alterar arquivo, add, commit e push.",
+      },
+      {
         type: "quiz",
-        title: "Quiz de multipla escolha",
+        title: "Projeto semanal",
         questions: [
           {
             prompt: "Qual comando mostra quais arquivos foram alterados no projeto?",
