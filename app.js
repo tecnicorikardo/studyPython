@@ -90,6 +90,51 @@ function renderBlock(block) {
     );
   }
 
+  if (block.type === "quiz") {
+    block.questions.forEach((question, questionIndex) => {
+      const quizCard = createElement("div", "quiz-card");
+      const prompt = createElement("p", "quiz-question", `${questionIndex + 1}. ${question.prompt}`);
+      const optionsWrapper = createElement("div", "quiz-options");
+      const feedback = createElement("p", "quiz-feedback");
+
+      feedback.innerHTML = `<strong>Resposta:</strong> escolha uma opcao para conferir.`;
+
+      question.options.forEach((option, optionIndex) => {
+        const optionLabel = createElement("label", "quiz-option");
+        const radio = document.createElement("input");
+        const optionText = createElement("span", "", option.label);
+
+        radio.type = "radio";
+        radio.name = `${block.title}-${questionIndex}`;
+        radio.value = String(optionIndex);
+
+        radio.addEventListener("change", () => {
+          const optionNodes = optionsWrapper.querySelectorAll(".quiz-option");
+          optionNodes.forEach((node, index) => {
+            node.classList.remove("correct", "incorrect");
+            if (index === question.answerIndex) {
+              node.classList.add("correct");
+            }
+          });
+
+          if (optionIndex !== question.answerIndex) {
+            optionLabel.classList.add("incorrect");
+          }
+
+          feedback.innerHTML = `<strong>Resposta certa:</strong> ${
+            question.options[question.answerIndex].label
+          }<br>${question.explanation}`;
+        });
+
+        optionLabel.append(radio, optionText);
+        optionsWrapper.appendChild(optionLabel);
+      });
+
+      quizCard.append(prompt, optionsWrapper, feedback);
+      article.appendChild(quizCard);
+    });
+  }
+
   return article;
 }
 

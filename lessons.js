@@ -1,5 +1,141 @@
 const lessons = [
   {
+    id: "github-basico",
+    weekDay: "Trilha extra",
+    title: "GitHub basico para memorizar",
+    goal: "Aprender o fluxo essencial de commit, push, pull e outros comandos que um programador usa com frequencia.",
+    focus: ["git status", "git add", "git commit", "git pull", "git push", "branch"],
+    blocks: [
+      {
+        type: "text",
+        title: "Regra pratica para comecar",
+        content:
+          "Sempre que iniciar ou retomar uma aula, vale fazer git pull para trazer a versao mais recente. Durante a aula, faca commits pequenos e claros sempre que concluir uma parte importante.",
+      },
+      {
+        type: "list",
+        title: "O que memorizar primeiro",
+        ordered: true,
+        items: [
+          "git status para ver o que mudou no projeto.",
+          "git pull para baixar atualizacoes do repositorio remoto antes de continuar.",
+          "git add . para preparar alteracoes para o commit.",
+          "git commit -m \"mensagem clara\" para registrar uma etapa concluida.",
+          "git push para enviar seus commits ao GitHub.",
+          "git branch para ver em qual branch voce esta trabalhando.",
+        ],
+      },
+      {
+        type: "qa",
+        title: "Perguntas e respostas rapidas",
+        items: [
+          {
+            question: "Preciso dar commit no comeco da aula?",
+            answer: "Normalmente voce faz commit quando conclui uma mudanca com sentido. No comeco da aula, o mais importante e fazer pull e checar status.",
+          },
+          {
+            question: "Quando usar push?",
+            answer: "Depois de fazer um ou mais commits e querer enviar essas alteracoes para o GitHub.",
+          },
+          {
+            question: "Quando usar pull?",
+            answer: "Antes de continuar trabalhando, para garantir que voce esta com a versao mais atual do repositorio.",
+          },
+        ],
+      },
+      {
+        type: "quiz",
+        title: "Quiz de multipla escolha",
+        questions: [
+          {
+            prompt: "Qual comando mostra quais arquivos foram alterados no projeto?",
+            options: [
+              { label: "git status" },
+              { label: "git push" },
+              { label: "git clone" },
+            ],
+            answerIndex: 0,
+            explanation: "Use git status para entender o estado atual do repositorio antes de tomar qualquer acao.",
+          },
+          {
+            prompt: "Qual comando baixa atualizacoes do repositorio remoto e integra no seu projeto local?",
+            options: [
+              { label: "git add ." },
+              { label: "git pull" },
+              { label: "git commit -m \"inicio\"" },
+            ],
+            answerIndex: 1,
+            explanation: "git pull traz mudancas do remoto. E um bom habito antes de retomar o estudo ou comecar uma tarefa.",
+          },
+          {
+            prompt: "Depois de alterar arquivos e preparar tudo com git add, qual e o proximo passo natural?",
+            options: [
+              { label: "git commit -m \"mensagem clara\"" },
+              { label: "git branch" },
+              { label: "git clone" },
+            ],
+            answerIndex: 0,
+            explanation: "O commit registra um ponto da sua evolucao com uma mensagem que explica a mudanca.",
+          },
+          {
+            prompt: "Qual comando envia seus commits locais para o GitHub?",
+            options: [
+              { label: "git push" },
+              { label: "git status" },
+              { label: "git checkout" },
+            ],
+            answerIndex: 0,
+            explanation: "git push sincroniza seus commits locais com o repositorio remoto.",
+          },
+          {
+            prompt: "Se voce quer criar uma copia local de um repositorio que ainda nao esta no seu computador, qual comando usa?",
+            options: [
+              { label: "git clone" },
+              { label: "git merge" },
+              { label: "git pull" },
+            ],
+            answerIndex: 0,
+            explanation: "git clone baixa o repositorio inteiro pela primeira vez.",
+          },
+          {
+            prompt: "Qual destes itens tambem e importante memorizar no GitHub alem de commit, push e pull?",
+            options: [
+              { label: "Branch e pull request" },
+              { label: "Apenas mudar o nome dos arquivos" },
+              { label: "Somente abrir o site do GitHub" },
+            ],
+            answerIndex: 0,
+            explanation: "Branch e pull request fazem parte do fluxo normal de colaboracao e organizacao de trabalho.",
+          },
+        ],
+      },
+      {
+        type: "list",
+        title: "Fluxo simples para decorar",
+        ordered: true,
+        items: [
+          "git pull",
+          "git status",
+          "fazer a aula ou exercicio",
+          "git add .",
+          "git commit -m \"descreve o que mudou\"",
+          "git push",
+        ],
+      },
+      {
+        type: "input",
+        title: "Memorizacao",
+        fields: [
+          {
+            label: "Escreva com suas palavras quando usar pull, commit e push",
+            inputType: "textarea",
+            placeholder: "Ex.: pull antes de comecar, commit ao fechar uma etapa, push para enviar...",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "dia-1",
     weekDay: "Dia 1",
     title: "Fundamentos e primeiros passos",
@@ -49,6 +185,11 @@ const lessons = [
             label: "Qual exercicio voce quer revisar depois?",
             inputType: "text",
             placeholder: "Ex.: media de notas",
+          },
+          {
+            label: "Mensagem de commit para fechar essa aula",
+            inputType: "text",
+            placeholder: "Ex.: conclui exercicios de variaveis e strings",
           },
         ],
       },

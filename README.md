@@ -1,6 +1,6 @@
 # Site de estudos
 
-Esse projeto e um site estatico simples para organizar uma semana de exercicios e revisoes de Python.
+Esse projeto e um site estatico simples para organizar uma semana de exercicios e revisoes de Python, com uma trilha extra de GitHub basico.
 
 ## Como abrir
 
@@ -66,6 +66,22 @@ Cada aula aceita esta estrutura:
           label: "Escolha uma opcao",
           inputType: "select",
           options: ["A", "B", "C"]
+        }
+      ]
+    },
+    {
+      type: "quiz",
+      title: "Quiz",
+      questions: [
+        {
+          prompt: "Pergunta?",
+          options: [
+            { label: "Opcao A" },
+            { label: "Opcao B" },
+            { label: "Opcao C" }
+          ],
+          answerIndex: 1,
+          explanation: "Motivo da resposta certa."
         }
       ]
     }
