@@ -1,5 +1,14 @@
+const trackTabsElement = document.getElementById("track-tabs");
 const lessonListElement = document.getElementById("lesson-list");
 const lessonContentElement = document.getElementById("lesson-content");
+const heroEyebrowElement = document.getElementById("hero-eyebrow");
+const heroTitleElement = document.getElementById("hero-title");
+const heroTextElement = document.getElementById("hero-text");
+const brandEyebrowElement = document.getElementById("brand-eyebrow");
+const brandTitleElement = document.getElementById("brand-title");
+const brandTextElement = document.getElementById("brand-text");
+
+let activeTrackId = studyTracks[0]?.id;
 
 function createElement(tagName, className, textContent) {
   const element = document.createElement(tagName);
@@ -13,6 +22,25 @@ function createElement(tagName, className, textContent) {
   }
 
   return element;
+}
+
+function getActiveTrack() {
+  return studyTracks.find((track) => track.id === activeTrackId) || studyTracks[0];
+}
+
+function createTrackTabs() {
+  trackTabsElement.innerHTML = "";
+
+  studyTracks.forEach((track) => {
+    const button = createElement("button", "track-tab", track.navLabel);
+    button.type = "button";
+    button.dataset.trackId = track.id;
+    button.addEventListener("click", () => {
+      activeTrackId = track.id;
+      renderTrack();
+    });
+    trackTabsElement.appendChild(button);
+  });
 }
 
 function renderInputField(field) {
@@ -57,30 +85,12 @@ function renderBlock(block) {
 
   if (block.type === "list") {
     const list = document.createElement(block.ordered ? "ol" : "ul");
-
-    block.items.forEach((item) => {
-      list.appendChild(createElement("li", "", item));
-    });
-
+    block.items.forEach((item) => list.appendChild(createElement("li", "", item)));
     article.appendChild(list);
   }
 
-  if (block.type === "qa") {
-    block.items.forEach((item) => {
-      const qaCard = createElement("div", "qa-card");
-      qaCard.append(
-        createElement("p", "qa-question", item.question),
-        createElement("p", "qa-answer", item.answer),
-      );
-      article.appendChild(qaCard);
-    });
-  }
-
   if (block.type === "input") {
-    block.fields.forEach((field) => {
-      article.appendChild(renderInputField(field));
-    });
-
+    block.fields.forEach((field) => article.appendChild(renderInputField(field)));
     article.appendChild(
       createElement(
         "p",
@@ -97,7 +107,7 @@ function renderBlock(block) {
       const optionsWrapper = createElement("div", "quiz-options");
       const feedback = createElement("p", "quiz-feedback");
 
-      feedback.innerHTML = `<strong>Resposta:</strong> escolha uma opcao para conferir.`;
+      feedback.innerHTML = "<strong>Resposta:</strong> escolha uma opcao para conferir.";
 
       question.options.forEach((option, optionIndex) => {
         const optionLabel = createElement("label", "quiz-option");
@@ -105,7 +115,7 @@ function renderBlock(block) {
         const optionText = createElement("span", "", option.label);
 
         radio.type = "radio";
-        radio.name = `${block.title}-${questionIndex}`;
+        radio.name = `${block.title}-${questionIndex}-${question.prompt}`;
         radio.value = String(optionIndex);
 
         radio.addEventListener("change", () => {
@@ -139,7 +149,8 @@ function renderBlock(block) {
 }
 
 function renderLesson(lessonId) {
-  const lesson = lessons.find((item) => item.id === lessonId) || lessons[0];
+  const track = getActiveTrack();
+  const lesson = track.lessons.find((item) => item.id === lessonId) || track.lessons[0];
   lessonContentElement.innerHTML = "";
 
   document.querySelectorAll(".lesson-button").forEach((button) => {
@@ -154,13 +165,8 @@ function renderLesson(lessonId) {
   const meta = createElement("div", "lesson-meta");
   const stack = createElement("div", "block-stack");
 
-  lesson.focus.forEach((item) => {
-    meta.appendChild(createElement("span", "lesson-chip", item));
-  });
-
-  lesson.blocks.forEach((block) => {
-    stack.appendChild(renderBlock(block));
-  });
+  lesson.focus.forEach((item) => meta.appendChild(createElement("span", "lesson-chip", item)));
+  lesson.blocks.forEach((block) => stack.appendChild(renderBlock(block)));
 
   header.append(eyebrow, title, description, meta);
   panel.append(header, stack);
@@ -168,36 +174,40 @@ function renderLesson(lessonId) {
 }
 
 function renderLessonButtons() {
+  const track = getActiveTrack();
   lessonListElement.innerHTML = "";
 
-  const groups = [
-    { key: "python", label: "Semana de variaveis" },
-    { key: "github", label: "Guia de GitHub" },
-  ];
-
-  groups.forEach((group) => {
-    const items = lessons.filter((lesson) => lesson.category === group.key);
-
-    if (!items.length) {
-      return;
-    }
-
-    lessonListElement.appendChild(createElement("p", "nav-group-title", group.label));
-
-    items.forEach((lesson) => {
-      const button = createElement("button", "lesson-button");
-      button.type = "button";
-      button.dataset.lessonId = lesson.id;
-      button.append(
-        createElement("span", "lesson-chip", lesson.weekDay),
-        createElement("strong", "", lesson.title),
-        createElement("span", "", lesson.goal),
-      );
-      button.addEventListener("click", () => renderLesson(lesson.id));
-      lessonListElement.appendChild(button);
-    });
+  track.lessons.forEach((lesson) => {
+    const button = createElement("button", "lesson-button");
+    button.type = "button";
+    button.dataset.lessonId = lesson.id;
+    button.append(
+      createElement("span", "lesson-chip", lesson.weekDay),
+      createElement("strong", "", lesson.title),
+      createElement("span", "", lesson.goal),
+    );
+    button.addEventListener("click", () => renderLesson(lesson.id));
+    lessonListElement.appendChild(button);
   });
 }
 
-renderLessonButtons();
-renderLesson(lessons[0]?.id);
+function renderTrack() {
+  const track = getActiveTrack();
+
+  document.querySelectorAll(".track-tab").forEach((button) => {
+    button.classList.toggle("active", button.dataset.trackId === track.id);
+  });
+
+  brandEyebrowElement.textContent = track.category === "github" ? "Guia extra" : "Treino focado";
+  brandTitleElement.textContent = track.title;
+  brandTextElement.textContent = track.description;
+  heroEyebrowElement.textContent = track.category === "github" ? "GitHub basico" : "Estrutura da semana";
+  heroTitleElement.textContent = track.heroTitle;
+  heroTextElement.textContent = track.heroText;
+
+  renderLessonButtons();
+  renderLesson(track.lessons[0]?.id);
+}
+
+createTrackTabs();
+renderTrack();

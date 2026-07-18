@@ -120,13 +120,32 @@ body::before {
   gap: 12px;
 }
 
-.nav-group-title {
-  margin: 12px 0 2px;
-  color: rgba(247, 241, 231, 0.78);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.track-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.track-tab {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.track-tab:hover,
+.track-tab:focus-visible,
+.track-tab.active {
+  background: rgba(215, 109, 63, 0.18);
+  border-color: rgba(215, 109, 63, 0.85);
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .lesson-button {
