@@ -1,6 +1,7 @@
 const trackTabsElement = document.getElementById("track-tabs");
 const lessonListElement = document.getElementById("lesson-list");
 const lessonContentElement = document.getElementById("lesson-content");
+const progressSummaryElement = document.getElementById("progress-summary");
 const heroEyebrowElement = document.getElementById("hero-eyebrow");
 const heroTitleElement = document.getElementById("hero-title");
 const heroTextElement = document.getElementById("hero-text");
@@ -34,6 +35,8 @@ function createTrackTabs() {
   studyTracks.forEach((track) => {
     const button = createElement("button", "track-tab", track.navLabel);
     button.type = "button";
+    button.role = "tab";
+    button.setAttribute("aria-selected", track.id === activeTrackId ? "true" : "false");
     button.dataset.trackId = track.id;
     button.addEventListener("click", () => {
       activeTrackId = track.id;
@@ -167,6 +170,10 @@ function renderLesson(lessonId) {
 
   lesson.focus.forEach((item) => meta.appendChild(createElement("span", "lesson-chip", item)));
   lesson.blocks.forEach((block) => stack.appendChild(renderBlock(block)));
+  
+  // Adiciona botão de conclusão
+  const completeButton = addLessonCompleteButton(lesson.id);
+  stack.appendChild(completeButton);
 
   header.append(eyebrow, title, description, meta);
   panel.append(header, stack);
@@ -179,9 +186,21 @@ function renderLessonButtons() {
 
   track.lessons.forEach((lesson) => {
     const button = createElement("button", "lesson-button");
+    const isComplete = ProgressTracker.isComplete(lesson.id);
+    
     button.type = "button";
     button.dataset.lessonId = lesson.id;
+    button.setAttribute("aria-label", `${lesson.weekDay}: ${lesson.title}`);
+    
+    if (isComplete) {
+      button.classList.add("completed");
+    }
+    
+    const checkbox = createElement("span", "lesson-checkbox", isComplete ? "✓" : "");
+    checkbox.setAttribute("aria-hidden", "true");
+    
     button.append(
+      checkbox,
       createElement("span", "lesson-chip", lesson.weekDay),
       createElement("strong", "", lesson.title),
       createElement("span", "", lesson.goal),
@@ -189,6 +208,8 @@ function renderLessonButtons() {
     button.addEventListener("click", () => renderLesson(lesson.id));
     lessonListElement.appendChild(button);
   });
+  
+  updateProgressSummary();
 }
 
 function renderTrack() {
@@ -207,6 +228,41 @@ function renderTrack() {
 
   renderLessonButtons();
   renderLesson(track.lessons[0]?.id);
+}
+
+function updateProgressSummary() {
+  const track = getActiveTrack();
+  const totalLessons = track.lessons.length;
+  const completedCount = track.lessons.filter((lesson) =>
+    ProgressTracker.isComplete(lesson.id)
+  ).length;
+  const percentage = Math.round((completedCount / totalLessons) * 100);
+
+  progressSummaryElement.innerHTML = `
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: ${percentage}%"></div>
+    </div>
+    <p class="progress-text">
+      <strong>${completedCount}</strong> de <strong>${totalLessons}</strong> licoes completas (${percentage}%)
+    </p>
+  `;
+}
+
+function addLessonCompleteButton(lessonId) {
+  const isComplete = ProgressTracker.isComplete(lessonId);
+  const button = createElement(
+    "button",
+    isComplete ? "complete-btn completed" : "complete-btn",
+    isComplete ? "✓ Aula concluida" : "Marcar como concluida"
+  );
+  button.type = "button";
+  button.addEventListener("click", () => {
+    ProgressTracker.markComplete(lessonId);
+    renderTrack();
+    button.textContent = "✓ Aula concluida";
+    button.classList.add("completed");
+  });
+  return button;
 }
 
 createTrackTabs();

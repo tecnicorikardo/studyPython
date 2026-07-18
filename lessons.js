@@ -873,3 +873,409 @@ const studyTracks = [
     ],
   },
 ];
+
+// Adicionando Semana 3: Estruturas condicionais
+const semana3 = {
+  id: "semana-3",
+  category: "python",
+  navLabel: "Semana 3",
+  title: "Estruturas condicionais",
+  description: "Uma semana para dominar if, elif, else e operadores logicos com muita pratica.",
+  heroTitle: "Tomada de decisoes no codigo",
+  heroText:
+    "O foco desta semana e aprender a fazer o programa tomar decisoes baseadas em condicoes, usando if, elif, else e operadores logicos.",
+  lessons: [
+    {
+      id: "s3-dia-1",
+      weekDay: "Dia 1",
+      title: "Primeiro if",
+      goal: "Entender a estrutura if basica e fazer decisoes simples.",
+      focus: ["if", "condicoes", "True/False"],
+      blocks: [
+        {
+          type: "text",
+          title: "Leitura",
+          content:
+            "O if permite que o programa execute um bloco de codigo apenas se uma condicao for verdadeira. E a estrutura mais basica de tomada de decisao. Hoje voce vai praticar ifs simples.",
+        },
+        {
+          type: "list",
+          title: "Exemplos",
+          ordered: false,
+          items: [
+            "if idade >= 18:",
+            "    print('Maior de idade')",
+            "",
+            "if nota >= 7:",
+            "    print('Aprovado')",
+          ],
+        },
+        {
+          type: "list",
+          title: "Exercicios",
+          ordered: true,
+          items: [
+            "Crie um if que verifica se um numero e positivo.",
+            "Leia uma idade e mostre mensagem se for maior de idade.",
+            "Leia uma nota e mostre 'Aprovado' se for maior ou igual a 7.",
+            "Verifique se um nome nao esta vazio.",
+            "Crie tres ifs diferentes com comparacoes variadas.",
+          ],
+        },
+        {
+          type: "quiz",
+          title: "Multipla escolha",
+          questions: [
+            {
+              prompt: "O que o if faz?",
+              options: [
+                { label: "Executa codigo apenas se a condicao for True" },
+                { label: "Repete codigo varias vezes" },
+                { label: "Cria variaveis" },
+              ],
+              answerIndex: 0,
+              explanation: "O if testa uma condicao e executa o bloco apenas se for verdadeira.",
+            },
+            {
+              prompt: "Como indicar o bloco de codigo dentro do if?",
+              options: [{ label: "Usando identacao (espacos)" }, { label: "Usando chaves {}" }, { label: "Usando parenteses ()" }],
+              answerIndex: 0,
+              explanation: "Python usa identacao para definir blocos de codigo.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "s3-dia-2",
+      weekDay: "Dia 2",
+      title: "If com else",
+      goal: "Usar else para lidar com duas possibilidades.",
+      focus: ["if", "else", "decisoes"],
+      blocks: [
+        {
+          type: "text",
+          title: "Leitura",
+          content:
+            "Quando uma condicao nao e verdadeira, o else permite executar um codigo alternativo. E util para situacoes onde voce tem duas opcoes claras.",
+        },
+        {
+          type: "list",
+          title: "Exemplos",
+          ordered: false,
+          items: [
+            "if idade >= 18:",
+            "    print('Maior de idade')",
+            "else:",
+            "    print('Menor de idade')",
+          ],
+        },
+        {
+          type: "list",
+          title: "Exercicios",
+          ordered: true,
+          items: [
+            "Leia um numero e mostre se e positivo ou nao positivo.",
+            "Leia uma nota e mostre 'Aprovado' ou 'Reprovado'.",
+            "Verifique se um nome esta vazio ou preenchido.",
+            "Leia idade e mostre se pode votar ou nao.",
+            "Crie tres programas diferentes com if/else.",
+          ],
+        },
+        {
+          type: "quiz",
+          title: "Multipla escolha",
+          questions: [
+            {
+              prompt: "Quando o else executa?",
+              options: [
+                { label: "Quando o if e False" },
+                { label: "Sempre" },
+                { label: "Apenas no final do programa" },
+              ],
+              answerIndex: 0,
+              explanation: "O else so executa se a condicao do if for falsa.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "s3-dia-3",
+      weekDay: "Dia 3",
+      title: "Multiplas condicoes com elif",
+      goal: "Testar varias condicoes com elif.",
+      focus: ["if", "elif", "else"],
+      blocks: [
+        {
+          type: "text",
+          title: "Leitura",
+          content:
+            "Quando voce tem mais de duas possibilidades, o elif permite testar condicoes adicionais. Voce pode usar quantos elif precisar entre o if e o else.",
+        },
+        {
+          type: "list",
+          title: "Exemplos",
+          ordered: false,
+          items: [
+            "if nota >= 9:",
+            "    print('Excelente')",
+            "elif nota >= 7:",
+            "    print('Bom')",
+            "else:",
+            "    print('Precisa melhorar')",
+          ],
+        },
+        {
+          type: "list",
+          title: "Exercicios",
+          ordered: true,
+          items: [
+            "Classifique uma nota em A, B, C, D ou F.",
+            "Leia idade e classifique em crianca, adolescente, adulto ou idoso.",
+            "Verifique faixa de IMC (baixo, normal, alto).",
+            "Classifique temperatura em frio, agradavel ou quente.",
+            "Monte um menu com 3 opcoes usando elif.",
+          ],
+        },
+        {
+          type: "quiz",
+          title: "Multipla escolha",
+          questions: [
+            {
+              prompt: "Quantos elif voce pode usar?",
+              options: [{ label: "Quantos precisar" }, { label: "No maximo 2" }, { label: "Apenas 1" }],
+              answerIndex: 0,
+              explanation: "Voce pode encadear varios elif para testar multiplas condicoes.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "s3-dia-4",
+      weekDay: "Dia 4",
+      title: "Operadores logicos: and",
+      goal: "Combinar condicoes com o operador and.",
+      focus: ["and", "condicoes compostas"],
+      blocks: [
+        {
+          type: "text",
+          title: "Leitura",
+          content:
+            "O operador and permite que voce teste se DUAS condicoes sao verdadeiras ao mesmo tempo. Ambas precisam ser True para o bloco executar.",
+        },
+        {
+          type: "list",
+          title: "Exemplos",
+          ordered: false,
+          items: [
+            "if idade >= 18 and tem_carteira:",
+            "    print('Pode dirigir')",
+            "",
+            "if nota >= 7 and presenca >= 75:",
+            "    print('Aprovado')",
+          ],
+        },
+        {
+          type: "list",
+          title: "Exercicios",
+          ordered: true,
+          items: [
+            "Verifique se alguem pode votar (idade >= 16 e tem titulo).",
+            "Verifique aprovacao (nota >= 7 e presenca >= 75).",
+            "Verifique se pode dirigir (idade >= 18 e tem carteira).",
+            "Cheque se um numero esta entre 10 e 20.",
+            "Crie tres validacoes usando and.",
+          ],
+        },
+        {
+          type: "quiz",
+          title: "Multipla escolha",
+          questions: [
+            {
+              prompt: "Quando 'A and B' e True?",
+              options: [
+                { label: "Quando A e B sao True" },
+                { label: "Quando apenas A e True" },
+                { label: "Quando A ou B e True" },
+              ],
+              answerIndex: 0,
+              explanation: "Com and, ambas as condicoes precisam ser verdadeiras.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "s3-dia-5",
+      weekDay: "Dia 5",
+      title: "Operadores logicos: or",
+      goal: "Combinar condicoes com o operador or.",
+      focus: ["or", "condicoes alternativas"],
+      blocks: [
+        {
+          type: "text",
+          title: "Leitura",
+          content:
+            "O operador or permite que voce teste se PELO MENOS UMA condicao e verdadeira. Basta uma delas ser True para o bloco executar.",
+        },
+        {
+          type: "list",
+          title: "Exemplos",
+          ordered: false,
+          items: [
+            "if dia == 'sabado' or dia == 'domingo':",
+            "    print('Final de semana')",
+            "",
+            "if idade < 12 or idade > 65:",
+            "    print('Desconto disponivel')",
+          ],
+        },
+        {
+          type: "list",
+          title: "Exercicios",
+          ordered: true,
+          items: [
+            "Verifique se e final de semana (sabado ou domingo).",
+            "Verifique desconto (idade < 12 ou idade > 65).",
+            "Cheque se um caractere e vogal (a, e, i, o, u).",
+            "Verifique se o mes e do verao (dez, jan ou fev).",
+            "Crie tres validacoes usando or.",
+          ],
+        },
+        {
+          type: "quiz",
+          title: "Multipla escolha",
+          questions: [
+            {
+              prompt: "Quando 'A or B' e True?",
+              options: [
+                { label: "Quando pelo menos uma e True" },
+                { label: "Apenas quando ambas sao True" },
+                { label: "Nunca" },
+              ],
+              answerIndex: 0,
+              explanation: "Com or, basta uma condicao ser verdadeira.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "s3-dia-6",
+      weekDay: "Dia 6",
+      title: "Operador not e condicoes negadas",
+      goal: "Usar not para inverter condicoes.",
+      focus: ["not", "negacao"],
+      blocks: [
+        {
+          type: "text",
+          title: "Leitura",
+          content:
+            "O operador not inverte o resultado de uma condicao. Se algo e True, not o transforma em False, e vice-versa. E util para verificar o oposto de algo.",
+        },
+        {
+          type: "list",
+          title: "Exemplos",
+          ordered: false,
+          items: [
+            "if not tem_acesso:",
+            "    print('Acesso negado')",
+            "",
+            "if not (idade >= 18):",
+            "    print('Menor de idade')",
+          ],
+        },
+        {
+          type: "list",
+          title: "Exercicios",
+          ordered: true,
+          items: [
+            "Verifique se um usuario NAO esta logado.",
+            "Verifique se um campo NAO esta vazio.",
+            "Cheque se um numero NAO e negativo.",
+            "Verifique se NAO e feriado.",
+            "Combine not com and ou or em um exemplo.",
+          ],
+        },
+        {
+          type: "quiz",
+          title: "Multipla escolha",
+          questions: [
+            {
+              prompt: "O que 'not True' retorna?",
+              options: [{ label: "False" }, { label: "True" }, { label: "None" }],
+              answerIndex: 0,
+              explanation: "O not inverte o valor booleano.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "s3-dia-7",
+      weekDay: "Dia 7",
+      title: "Revisao e projeto final",
+      goal: "Consolidar if, elif, else e operadores logicos.",
+      focus: ["revisao", "projeto", "condicoes"],
+      blocks: [
+        {
+          type: "text",
+          title: "Leitura",
+          content:
+            "No ultimo dia da semana, voce vai revisar tudo: if simples, if/else, elif, and, or e not. O objetivo e criar programas completos que tomam decisoes complexas.",
+        },
+        {
+          type: "list",
+          title: "Exercicios de revisao",
+          ordered: true,
+          items: [
+            "Monte um sistema de login (usuario e senha corretos).",
+            "Crie um classificador de IMC com varias faixas.",
+            "Faca um menu com 4 opcoes usando elif.",
+            "Sistema de desconto (idade ou cupom).",
+            "Calculadora simples que escolhe operacao.",
+            "Refaca dois exercicios da semana sem olhar.",
+          ],
+        },
+        {
+          type: "quiz",
+          title: "Multipla escolha",
+          questions: [
+            {
+              prompt: "Qual estrutura testa multiplas condicoes?",
+              options: [{ label: "if, elif, else" }, { label: "Apenas if" }, { label: "Apenas while" }],
+              answerIndex: 0,
+              explanation: "elif permite testar varias condicoes em sequencia.",
+            },
+            {
+              prompt: "Qual combina duas condicoes que ambas devem ser True?",
+              options: [{ label: "and" }, { label: "or" }, { label: "not" }],
+              answerIndex: 0,
+              explanation: "O and exige que ambas as condicoes sejam verdadeiras.",
+            },
+          ],
+        },
+        {
+          type: "input",
+          title: "Projeto da semana",
+          fields: [
+            {
+              label: "Qual projeto voce vai criar?",
+              inputType: "text",
+              placeholder: "Ex.: sistema de notas com varias classificacoes",
+            },
+            {
+              label: "Mensagem de commit",
+              inputType: "text",
+              placeholder: "Ex.: finaliza semana de estruturas condicionais",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+studyTracks.push(semana3);

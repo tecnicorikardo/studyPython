@@ -115,6 +115,40 @@ body::before {
   color: rgba(247, 241, 231, 0.72);
 }
 
+.progress-summary {
+  margin: 24px 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #f5a962);
+  border-radius: 999px;
+  transition: width 400ms ease;
+}
+
+.progress-text {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(247, 241, 231, 0.85);
+  text-align: center;
+}
+
+.progress-text strong {
+  color: #f7f1e7;
+}
+
 .lesson-list {
   display: grid;
   gap: 12px;
@@ -149,15 +183,40 @@ body::before {
 }
 
 .lesson-button {
+  position: relative;
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 16px;
+  padding-left: 48px;
   text-align: left;
   color: inherit;
   background: rgba(255, 255, 255, 0.04);
   cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.lesson-checkbox {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 200ms ease;
+}
+
+.lesson-button.completed .lesson-checkbox {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
 }
 
 .lesson-button:hover,
@@ -361,6 +420,40 @@ body::before {
 .input-hint {
   margin: 0;
   color: var(--muted);
+}
+
+.complete-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px 24px;
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.complete-btn:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(215, 109, 63, 0.3);
+}
+
+.complete-btn.completed {
+  background: rgba(53, 129, 90, 0.2);
+  border-color: rgba(53, 129, 90, 0.5);
+  color: #358159;
+  cursor: default;
+}
+
+.complete-btn.completed:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 @media (max-width: 980px) {

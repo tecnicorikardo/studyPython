@@ -3,6 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Site de estudos progressivo de Python com cronograma semanal, exercicios, quiz interativo e sistema de progresso." />
+    <meta name="keywords" content="python, programacao, estudos, tutorial, exercicios, quiz, aprender python" />
+    <meta name="author" content="Seu Nome" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Plano de Exercicios Python - Estudo Progressivo" />
+    <meta property="og:description" content="Aprenda Python com cronograma semanal estruturado, exercicios praticos e quiz interativo." />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Plano de Exercicios Python" />
+    <meta property="twitter:description" content="Aprenda Python com cronograma semanal estruturado." />
+    
     <title>Plano de Exercicios Python</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,9 +26,9 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body role="document">
     <div class="page-shell">
-      <aside class="sidebar">
+      <aside class="sidebar" role="complementary" aria-label="Navegação do curso">
         <div class="brand">
           <p id="brand-eyebrow" class="eyebrow">Treino focado</p>
           <h1 id="brand-title">Variaveis e operadores</h1>
@@ -23,15 +37,17 @@
           </p>
         </div>
 
-        <div id="track-tabs" class="track-tabs"></div>
+        <div id="progress-summary" class="progress-summary"></div>
 
-        <nav>
+        <div id="track-tabs" class="track-tabs" role="tablist" aria-label="Semanas do curso"></div>
+
+        <nav aria-label="Lista de aulas">
           <p class="section-title">Aulas e desafios</p>
           <div id="lesson-list" class="lesson-list"></div>
         </nav>
       </aside>
 
-      <main class="content">
+      <main class="content" role="main">
         <section class="hero-card">
           <p id="hero-eyebrow" class="eyebrow">Estrutura da semana</p>
           <h2 id="hero-title">Uma semana, um assunto, muita repeticao</h2>
@@ -41,10 +57,11 @@
           </p>
         </section>
 
-        <section id="lesson-content" class="lesson-content" aria-live="polite"></section>
+        <section id="lesson-content" class="lesson-content" aria-live="polite" aria-atomic="true"></section>
       </main>
     </div>
 
+    <script src="./progress.js"></script>
     <script src="./lessons.js"></script>
     <script src="./app.js"></script>
   </body>
