@@ -120,6 +120,15 @@ body::before {
   gap: 12px;
 }
 
+.nav-group-title {
+  margin: 12px 0 2px;
+  color: rgba(247, 241, 231, 0.78);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .lesson-button {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.08);

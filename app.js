@@ -168,17 +168,34 @@ function renderLesson(lessonId) {
 }
 
 function renderLessonButtons() {
-  lessons.forEach((lesson) => {
-    const button = createElement("button", "lesson-button");
-    button.type = "button";
-    button.dataset.lessonId = lesson.id;
-    button.append(
-      createElement("span", "lesson-chip", lesson.weekDay),
-      createElement("strong", "", lesson.title),
-      createElement("span", "", lesson.goal),
-    );
-    button.addEventListener("click", () => renderLesson(lesson.id));
-    lessonListElement.appendChild(button);
+  lessonListElement.innerHTML = "";
+
+  const groups = [
+    { key: "python", label: "Semana de variaveis" },
+    { key: "github", label: "Guia de GitHub" },
+  ];
+
+  groups.forEach((group) => {
+    const items = lessons.filter((lesson) => lesson.category === group.key);
+
+    if (!items.length) {
+      return;
+    }
+
+    lessonListElement.appendChild(createElement("p", "nav-group-title", group.label));
+
+    items.forEach((lesson) => {
+      const button = createElement("button", "lesson-button");
+      button.type = "button";
+      button.dataset.lessonId = lesson.id;
+      button.append(
+        createElement("span", "lesson-chip", lesson.weekDay),
+        createElement("strong", "", lesson.title),
+        createElement("span", "", lesson.goal),
+      );
+      button.addEventListener("click", () => renderLesson(lesson.id));
+      lessonListElement.appendChild(button);
+    });
   });
 }
 

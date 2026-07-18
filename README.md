@@ -1,8 +1,8 @@
 # Site de estudos
 
-Esse projeto e um site estatico simples para organizar o estudo de Python por semanas.
+Esse projeto e um site estatico simples para organizar uma semana intensiva de estudo.
 
-O conteudo principal segue uma trilha completa com 20 semanas, e cada semana usa a estrutura:
+O conteudo principal esta focado apenas em variaveis e operadores, distribuido em 7 dias com dificuldade crescente. Cada dia usa a estrutura:
 
 - explicacao
 - exemplos
@@ -10,7 +10,7 @@ O conteudo principal segue uma trilha completa com 20 semanas, e cada semana usa
 - desafio
 - projeto semanal
 
-Tambem existe uma trilha extra de GitHub basico.
+Tambem existe uma guia separada de GitHub basico com leitura e perguntas de multipla escolha.
 
 ## Como abrir
 
